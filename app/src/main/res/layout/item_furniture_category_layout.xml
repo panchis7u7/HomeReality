@@ -15,11 +15,12 @@
         android:gravity="center">
 
         <ImageView
-            android:id="@+id/iconCategory"
+            android:id="@+id/imageViewIconCategory"
             android:layout_width="100dp"
             android:layout_height="100dp"/>
 
         <TextView
+            android:id="@+id/textViewCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
