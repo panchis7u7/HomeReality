@@ -6,6 +6,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homereality.Adapters.RecyclerItemCategoryAdapter
@@ -23,34 +24,33 @@ class MainActivity : AppCompatActivity() {
 
         setFullScreen()
 
-        binding.recyclerCategory.layoutManager = LinearLayoutManager(
-            this,
-            RecyclerView.VERTICAL, false
-        )
+        binding.recyclerCategory.layoutManager = GridLayoutManager(applicationContext, 2,
+        LinearLayoutManager.VERTICAL, false)
+        binding.recyclerCategory.setHasFixedSize(false)
         binding.recyclerCategory.adapter = RecyclerItemCategoryAdapter(this, populateList())
 
     }
 
     private fun populateList(): MutableList<FurnitureCategory>{
         var items: MutableList<FurnitureCategory> = mutableListOf()
-        items.add(
-            FurnitureCategory(
+        items.add(FurnitureCategory(
                 "https://img.icons8.com/ios/452/test-passed.png",
-                "Prueba1"
-            )
-        )
-        items.add(
-            FurnitureCategory(
+                "Prueba1"))
+        items.add(FurnitureCategory(
                 "https://img.icons8.com/ios/452/test-passed.png",
-                "Prueba2"
-            )
-        )
-        items.add(
-            FurnitureCategory(
+                "Prueba2"))
+        items.add(FurnitureCategory(
                 "https://img.icons8.com/ios/452/test-passed.png",
-                "Prueba3"
-            )
-        )
+                "Prueba3"))
+        items.add(FurnitureCategory(
+                "https://img.icons8.com/ios/452/test-passed.png",
+                "Prueba4"))
+        items.add(FurnitureCategory(
+                "https://img.icons8.com/ios/452/test-passed.png",
+                "Prueba5"))
+        items.add(FurnitureCategory(
+                "https://img.icons8.com/ios/452/test-passed.png",
+                "Prueba6"))
         return items
     }
 
