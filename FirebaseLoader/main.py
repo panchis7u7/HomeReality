@@ -11,8 +11,8 @@ from os import listdir
 from os.path import isfile, join
 
 #
-STORAGE_PATH = "gs://couchmirage-74314.appspot.com/"
-CERTIFICATE = "/home/arikzil/Desktop/projects/CouchMirageFirebaseLoader/key.json"
+STORAGE_PATH = "gs://homereality-7d0b8.appspot.com"
+CERTIFICATE = "/home/panchis/Desktop/HomeReality/FirebaseLoader/key.json"
 DATA_PATH = "TO_ADD"
 
 
@@ -37,7 +37,7 @@ def main():
     store = firestore.client()
     doc_ref = store.collection(u'BEDS & MATTRESSES')
     docs = doc_ref.get()
-    bucket = storage.bucket("couchmirage-74314.appspot.com")
+    bucket = storage.bucket("homereality-7d0b8.appspot.com")
 
     #
     path = DATA_PATH
