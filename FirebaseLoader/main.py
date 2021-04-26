@@ -11,9 +11,9 @@ from os import listdir
 from os.path import isfile, join
 
 #
-STORAGE_PATH = "gs://homereality-7d0b8.appspot.com"
+STORAGE_PATH = "gs://homereality-7d0b8.appspot.com/"
 CERTIFICATE = "/home/panchis/Desktop/HomeReality/FirebaseLoader/key.json"
-DATA_PATH = "TO_ADD"
+DATA_PATH = "data"
 
 
 def load_json(file_path):
@@ -69,16 +69,16 @@ def main():
                 # add record
                 doc_ref.add(item_data)
 
-                # # add model
-                # fileName = path + '/' + index + '/' + model
-                # blob = bucket.blob('models/' + model)
-                # blob.upload_from_filename(fileName)
-                #
-                # # add images
-                # for image in images:
-                #     fileName = path + '/' + index + '/' + image
-                #     blob = bucket.blob('images/' + image)
-                #     blob.upload_from_filename(fileName)
+                # add model
+                fileName = path + '/' + index + '/' + model
+                blob = bucket.blob('models/' + model)
+                blob.upload_from_filename(fileName)
+            
+                # add images
+                for image in images:
+                    fileName = path + '/' + index + '/' + image
+                    blob = bucket.blob('images/' + image)
+                    blob.upload_from_filename(fileName)
             else:
                 print("Skip:" + model)
 

@@ -5,17 +5,17 @@
     186
   ],
   "details": {
-    "description": "צדי מיטה מתכווננים מאפשרים שימוש במזרנים בעלי עובי שונה.\n17 לוחות עץ משכבות מודבקות; מתאימים עצמם למשקל גופכם ומשפרים את גמישות המזרן.",
-    "good_to_know": " המחיר כולל עמוד אמצעי SKORVA אולם נאסף באריזה נפרדת.\nבסיס המיטה מפסי עץ כלול במחיר אולם ארוז בנפרד.\nהוסיפו חלל אחסון מתחת למיטה בעזרת ארגזי האחסון ROMSKOG.\nמזרן ומצעים נמכרים בנפרד. "
+    "description": "The sturdy solid pine frame has natural variations in grain, colour and texture, giving every piece a unique look. And it has been stained and lacquered making it more durable and easy to care for.",
+    "good_to_know": "You can sit up comfortably in bed thanks to the high headboard – just prop some pillows behind your back and you will have a comfortable place to read or watch TV."
   },
-  "category": "MIRRORS",
-  "price": 1495,
+  "category": "Beds&Mattresses",
+  "price": 6999,
   "color": "black-brown/Luroy",
   "rendable": "models/bed_1.glb",
   "images": [
     "https://firebasestorage.googleapis.com/v0/b/couchmirage-74314.appspot.com/o/images%2Fbed_1_1.jpg?alt=media&token=4cf5a1c6-820e-4ea6-b794-126ef21898b0",
     "https://firebasestorage.googleapis.com/v0/b/couchmirage-74314.appspot.com/o/images%2Fbed_1_2.jpg?alt=media&token=ae143524-ac40-445d-932a-755f10e43593"
   ],
-  "source": "https://www.ikea.co.il/catalogue/Beds_and_Mattresses/Bed_frames/69002266",
+  "source": "https://www.ikea.com/mx/en/p/hemnes-bed-frame-black-brown-luroey-s19069773/",
   "model": "HEMNES"
 }
