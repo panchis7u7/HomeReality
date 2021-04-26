@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    126,
+    66,
+    86
+  ],
+  "details": {
+    "description": "Your baby will sleep safely and comfortably as the durable materials in the crib base have been tested to make sure they give the body the support it needs.",
+    "good_to_know": "Solid beech, Stain, Clear acrylic lacquer"
+  },
+  "category": "BABY & CHILDREN PRODUCTS",
+  "price": 1195,
+  "color": "white",
+  "rendable": "models/children_1.glb",
+  "images": [
+    "images/children_1_1.jpg",
+    "images/children_1_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/sundvik-cot-white-30248575/",
+  "model": "STUVA/FRITIDS"
+}

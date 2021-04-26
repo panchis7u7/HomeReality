@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    16,
+    27,
+    43
+  ],
+  "details": {
+    "description": "The tray under the mirror keeps the smaller items in place Choose the style of your look. You can choose whether to assemble the top decoration.",
+    "good_to_know": "The look can be reversed."
+  },
+  "category": "MIRRORS",
+  "price": 349,
+  "color": "black",
+  "rendable": "models/mirror_1.glb",
+  "images": [
+    "images/mirror_1_1.jpg",
+    "images/mirror_1_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/karmsund-table-mirror-black-00294979/",
+  "model": "KARMSUND"
+}

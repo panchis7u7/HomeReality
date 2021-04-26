@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    58,
+    36,
+    70
+  ],
+  "details": {
+    "description": "Drawer brakes that prevent excessive retrieval.",
+    "good_to_know": "Can be placed in the center of the room thanks to a back finish."
+  },
+  "category": "STORAGE FURNITURE",
+  "price": 1880,
+  "color": "white",
+  "rendable": "models/drawer_1.glb",
+  "images": [
+    "images/drawer_1_1.jpg",
+    "images/drawer_1_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/alex-drawer-unit-white-00473546/",
+  "model": "ALEX"
+}

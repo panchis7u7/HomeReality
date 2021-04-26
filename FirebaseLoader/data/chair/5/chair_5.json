@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    56 ,
+    58,
+    48
+  ],
+  "details": {
+    "description": "Comfortable sitting position thanks to the adjustable height of the chair. The safety wheels have brakes with a pressure-sensitive mechanism, which keeps the chair in place when you get up from it, and releases automatically when you sit down.",
+    "good_to_know": "Recommended for ages 4-12."
+  },
+  "category": "CHAIRS",
+  "price": 1099,
+  "color": "white",
+  "rendable": "models/chair_5.glb",
+  "images": [
+    "images/chair_4_1.jpg",
+    "images/chair_4_2.jpg",
+    "images/chair_4_3.jpg"
+  ],
+  "source": "https://www.ikea.co.il/catalogue/Workspaces/Home_work_chairs/39207716",
+  "model": "JULES"
+}

@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    160,
+    80,
+    90
+  ],
+  "details": {
+    "guarantee": "Information on warranty terms can be found in the warranty certificate.",
+    "description": "The melamine surface is durable, stain-repellent and easy to clean. Deep work surface imparts You have a spacious workplace and allows sitting at a comfortable distance from the computer",
+    "product_detail": "The melamine surface is durable, stain-repellent and easy to clean. A deep work surface gives you a spacious workplace and allows you to sit at a comfortable distance from the computer screen."
+  },
+  "category": "DESKS",
+  "price": 1999,
+  "color": "white/silver",
+  "rendable": "models/desk_1.glb",
+  "images": [
+    "images/desk_1_1.jpg",
+    "images/desk_1_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/thyge-desk-white-silver-colour-s49110931/",
+  "model": "THYGE"
+}

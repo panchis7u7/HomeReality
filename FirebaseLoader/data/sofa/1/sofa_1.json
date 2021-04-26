@@ -1,0 +1,24 @@
+{
+  "sizes": [
+    199,
+    97,
+    84
+  ],
+  "details": {
+    "description": "The sofa gives you maximum comfort and support; The thick upholstery has a core of pocket springs, a top sponge layer and polyester fibers. The core of the pocket springs is durable and maintains its shape and comfort for a longer time. A deep and comfortable sofa for sitting.",
+    "good_to_know": "The durable upholstery NOLHAGA is made of thick cotton fabric and pilaster with a delicate details finish such as two-tone mirror paint.",
+    "environment_materials": "Easy to clean cover; removable and machine washable. Solid beech legs.",
+    "guarantee": "Warranty information can be found in the warranty certificate."
+  },
+  "category": "SOFAS & ARMCHAIRS",
+  "price": 19499,
+  "color": "dark green/light brown/wood",
+  "rendable": "models/sofa_1.glb",
+  "images": [
+    "images/sofa_1_1.jpg",
+    "images/sofa_1_2.jpg",
+    "images/sofa_1_3.jpg"
+  ],
+  "source": "https://www.ikea.co.il/catalogue/Living_room_seating/Three_seat_sofas/29274749",
+  "model": "STOCKSUND"
+}

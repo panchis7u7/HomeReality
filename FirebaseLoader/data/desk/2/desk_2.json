@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    45,
+    118,
+    74
+  ],
+  "details": {
+    "description": "The changing pattern gives each table a unique character. The word veneer surface and the full birch legs give a warm and natural feeling to the room",
+    "good_to_know": "The drawer is suitable for a maximum of 14 inches."
+  },
+  "category": "DESKS",
+  "price": 3999,
+  "color": "wood",
+  "rendable": "models/desk_2.glb",
+  "images": [
+    "images/desk_2_1.jpg",
+    "images/desk_2_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/lisabo-table-ash-veneer-70294339/",
+  "model": "LISABO"
+}

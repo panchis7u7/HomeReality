@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    33,
+    75,
+    42
+  ],
+  "details": {
+    "description": "Shoe Rack.",
+    "good_to_know": "Two units can be connected on top of each other; Includes connection fittings."
+  },
+  "category": "SMALL STORAGE",
+  "price": 499,
+  "color": "black",
+  "rendable": "models/rack_1.glb",
+  "images": [
+    "images/rack_1_1.jpg",
+    "images/rack_1_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/tjusig-shoe-rack-black-10152639/",
+  "model": "TJUSIG"
+}

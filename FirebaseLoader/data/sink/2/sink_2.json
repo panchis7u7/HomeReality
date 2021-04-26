@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    47,
+    60,
+    99
+  ],
+  "details": {
+    "description": "Fits well with other products from the HEMNES series. The stylish and simple look of the drawers and handles emphasizes the Scandinavian style.",
+    "good_to_know": "Includes faucet and strainer."
+  },
+  "category": "BATHROOOM STORAGE",
+  "price": 8469,
+  "color": "white",
+  "rendable": "models/sink_2.glb",
+  "images": [
+    "images/sink_2_1.jpg",
+    "images/sink_2_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/hemnes-raettviken-wash-stand-with-2-drawers-white-runskaer-tap-s29414684/",
+  "model": " HEMNES/RÄTTVIKEN "
+}

@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    50,
+    50,
+    45
+  ],
+  "details": {
+    "description": "Separate shelf for storing magazines and the like. Helps maintain order and organization and frees up space on the table.",
+    "good_to_know": "Including wheels; Can be easily moved from place to place."
+  },
+  "category": "TABLES",
+  "price": 1099,
+  "color": "WHITE",
+  "rendable": "models/table_2.glb",
+  "images": [
+    "images/table_2_1.jpg",
+    "images/table_2_2.jpg",
+    "images/table_2_3.jpg"
+  ],
+  "source": "https://www.ikea.co.il/catalogue/Living_room_seating/Side_tables/20295930",
+  "model": "HOL"
+}

@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    58,
+    200,
+    201
+  ],
+  "details": {
+    "description": "Sliding doors leave more space for other furniture because they do not take up space when open. Complete with KOMPLEMENT series organizers. Adjustable leg that can be fitted to an uneven floor. Includes a safety coating; reduces damage if the glass breaks",
+    "good_to_know": "Interior fittings are sold separately. Includes mounting fittings for sliding door and Kent. This combination includes 2 frames 100 cm wide. Care caution with tempered glass! Damaged edges or cracked surface area may break the glass. Avoid damaging the glass sides. , Where she is particularly vulnerable."
+  },
+  "category": "3600",
+  "price": 2585,
+  "color": "white",
+  "rendable": "models/wardrobe_2.glb",
+  "images": [
+    "images/wardrobe_2_1.jpg",
+    "images/wardrobe_2_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/pax-2-wardrobe-frames-white-s59895257/",
+  "model": "PAX"
+}

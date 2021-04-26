@@ -1,11 +1,13 @@
 package com.example.homereality.Adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.homereality.Models.FurnitureCategory
@@ -21,7 +23,9 @@ RecyclerView.Adapter<RecyclerItemCategoryAdapter.ItemHolder>(){
         val textViewCategoria: TextView = itemView.findViewById(R.id.textViewCategory)
 
         init {
-
+            itemView.setOnClickListener {
+                val position: Int = adapterPosition
+            }
         }
 
     }

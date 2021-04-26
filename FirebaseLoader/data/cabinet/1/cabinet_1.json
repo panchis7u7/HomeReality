@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    35,
+    60,
+    35
+  ],
+  "details": {
+    "description": "Everything you need for storing and keeping things organised at home. Choose a ready-made combination or create your own, adapted to your style and belongings. This is just one of many, many possibilities. Steel, Epoxy/polyester powder coating Wipe clean with a cloth dampened in a mild cleaner. Wipe dry with a clean cloth.",
+    "good_to_know": "Create an asymmetric or unexpected storage solution and fill it with your things. Stack and combine as you please. Keep track of important papers, letters and newspapers by sorting them on the inside of the cabinet door."
+  },
+  "category": "STORAGE FURNITURE",
+  "price": 799,
+  "color": "grey",
+  "rendable": "models/cabinet_1.glb",
+  "images": [
+    "images/cabinet_1_1.jpg",
+    "images/cabinet_1_2.jpg",
+    "images/cabinet_1_3.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/lixhult-cabinet-metal-grey-70328669/",
+  "model": "LIXHULT"
+}

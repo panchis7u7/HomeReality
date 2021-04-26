@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    102,
+    49,
+    74
+  ],
+  "details": {
+    "description": "Made of bamboo.",
+    "good_to_know": "Translation results Bamboo is a durable, renewable and sustainable material that can be placed in the size drawers that prevent over-retrieval in the center of the room thanks to the back finish."
+  },
+  "category": "DESKS",
+  "price": 695,
+  "color": "wood",
+  "rendable": "models/desk_4.glb",
+  "images": [
+    "images/desk_4_1.jpg",
+    "images/desk_4_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/lillasen-desk-bamboo-90278277/",
+  "model": "LILLÅSEN"
+}

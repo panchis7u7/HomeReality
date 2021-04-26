@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    31.5,
+    31.5,
+    181
+  ],
+  "details": {
+    "description": "The enlarged lamp head also provides good concentrated light for reading and good general light for small areas.",
+    "good_to_know": "The light can be easily adjusted where you need it thanks to the adjustable lamp head. For example, you can aim it at a book for reading, use it as overhead lighting, or adjust it to focus on a specific area of the room..",
+    "energy_consumption": "Maximum power consumption 100 W Maximum 53 watts. "
+  },
+  "category": "LIGHTNING",
+  "price": 1499,
+  "color": "grey",
+  "rendable": "models/lamp_3.glb",
+  "images": [
+    "images/lamp_3_1.jpg",
+    "images/lamp_3_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/hektar-floor-lamp-dark-grey-70216544/",
+  "model": "HEKTAR"
+}

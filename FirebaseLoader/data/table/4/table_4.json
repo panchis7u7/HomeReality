@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    152,
+    80,
+    74
+  ],
+  "details": {
+    "description": "Dining table with 2 extensions. Room for 2-4 diners; the length of the table can be adjusted as needed. 6 drawers under the table surface for storing napkins, cutlery, candles, etc. This table is tested to the highest standards of strength , Stability and safety to withstand daily use in your home for years.",
+    "good_to_know": "The small dimensions of a table make it easy to integrate with the furniture, even when space is limited."
+  },
+  "category": "TABLES",
+  "price": 499,
+  "color": "WHITE",
+  "rendable": "models/table_4.glb",
+  "images": [
+    "images/table_4_1.jpg",
+    "images/table_4_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/norden-gateleg-table-white-10423886/",
+  "model": "NORDEN"
+}

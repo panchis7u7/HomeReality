@@ -1,0 +1,23 @@
+{
+  "sizes": [
+    38,
+    38,
+    168
+  ],
+  "details": {
+    "description": "You can create a warm atmosphere in the house with a fabric lampshade that spreads diffused and decorative light .",
+    "good_to_know": "Height adjustable; Can be adjusted according to your lighting needs.",
+    "energy_consumption": "13W."
+  },
+  "category": "LIGHTNING",
+  "price": 1499,
+  "color": "white",
+  "rendable": "models/lamp_4.glb",
+  "images": [
+    "images/lamp_4_1.jpg",
+    "images/lamp_4_2.jpg",
+    "images/lamp_4_3.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/nyfors-floor-lamp-nickel-plated-white-50303113/",
+  "model": "NYFORS"
+}

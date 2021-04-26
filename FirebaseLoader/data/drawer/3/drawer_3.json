@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    50,
+    160,
+    96
+  ],
+  "details": {
+    "description": "Your home should be a safe place for the whole family. The fixing fittings are attached to the product so that you can fix it to the wall. Durable natural material with a warm look.",
+    "good_to_know": "warning! Danger of falling - furniture that is not fixed to the wall may fall. This furniture should be fixed to the wall using the safety accessory provided to prevent it from falling."
+  },
+  "category": "STORAGE FURNITURE",
+  "price": 6999,
+  "color": "white",
+  "rendable": "models/drawer_3.glb",
+  "images": [
+    "images/drawer_3_1.jpg",
+    "images/drawer_3_2.jpg",
+    "images/drawer_3_3.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/hemnes-chest-of-8-drawers-white-stain-00318598/",
+  "model": "HEMNES"
+}

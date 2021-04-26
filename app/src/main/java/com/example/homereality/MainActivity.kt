@@ -2,16 +2,17 @@ package com.example.homereality
 
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.homereality.Adapters.RecyclerItemCategoryAdapter
 import com.example.homereality.Models.FurnitureCategory
 import com.example.homereality.databinding.ActivityMainBinding
+import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity() {
@@ -35,22 +36,43 @@ class MainActivity : AppCompatActivity() {
         var items: MutableList<FurnitureCategory> = mutableListOf()
         items.add(FurnitureCategory(
                 "https://img.icons8.com/ios/452/test-passed.png",
-                "Prueba1"))
+                "Beds & Mattresses"))
         items.add(FurnitureCategory(
                 "https://img.icons8.com/ios/452/test-passed.png",
-                "Prueba2"))
+                "Desks"))
         items.add(FurnitureCategory(
                 "https://img.icons8.com/ios/452/test-passed.png",
-                "Prueba3"))
+                "Kitchen cabinets & appliences"))
         items.add(FurnitureCategory(
                 "https://img.icons8.com/ios/452/test-passed.png",
-                "Prueba4"))
+                "Chairs"))
         items.add(FurnitureCategory(
                 "https://img.icons8.com/ios/452/test-passed.png",
-                "Prueba5"))
+                "Bathroom Storage"))
         items.add(FurnitureCategory(
                 "https://img.icons8.com/ios/452/test-passed.png",
-                "Prueba6"))
+                "Cloth Storage"))
+        items.add(FurnitureCategory(
+                "https://www.flaticon.com/svg/vstatic/svg/3081/3081993.svg?token=exp=1618596070~hmac=b609000bdf1ee0384e20579220165eaf",
+                "Baby and children products"))
+        items.add(FurnitureCategory(
+                "https://img.icons8.com/ios/452/test-passed.png",
+                "Mirrors"))
+        items.add(FurnitureCategory(
+                "https://img.icons8.com/ios/452/test-passed.png",
+                "Outdoor Furniture"))
+        items.add(FurnitureCategory(
+                "https://img.icons8.com/ios/452/test-passed.png",
+                "Small Storage"))
+        items.add(FurnitureCategory(
+                "https://img.icons8.com/ios/452/test-passed.png",
+                "Sofas & armchairs"))
+        items.add(FurnitureCategory(
+                "https://img.icons8.com/ios/452/test-passed.png",
+                "Tables"))
+        items.add(FurnitureCategory(
+                "https://img.icons8.com/ios/452/test-passed.png",
+                "Lightning"))
         return items
     }
 

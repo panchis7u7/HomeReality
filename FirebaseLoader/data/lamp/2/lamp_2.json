@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    76,
+    28,
+    153
+  ],
+  "details": {
+    "description": "The light is easy to direct wherever you want as the lamp has an adjustable arm and head.",
+    "good_to_know": "Focused lighting suitable for reading."
+  },
+  "category": "LIGHTNING",
+  "price": 999,
+  "color": "black",
+  "rendable": "models/lamp_2.glb",
+  "images": [
+    "images/lamp_2_1.jpg",
+    "images/lamp_2_2.jpg",
+    "images/lamp_2_3.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/ranarp-floor-reading-lamp-off-white-90231303/",
+  "model": "RANARP"
+}

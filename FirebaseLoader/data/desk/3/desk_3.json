@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    150,
+    75,
+    74
+  ],
+  "details": {
+    "description": "Ready-made holes for easy assembly of the legs Restraints can be placed in the center of the room The table is stable even on a floor that is not straight thanks to the adjustable legs thanks to the finish in the back of drawers that prevent excessive pulling",
+    "good_to_know": "Including screws for fixing the legs to the table surface, including plastic shields for home use. This product creates and tests the top surface of the table in place."
+  },
+  "category": "DESKS",
+  "price": 640,
+  "color": "white",
+  "rendable": "models/desk_3.glb",
+  "images": [
+    "images/desk_3_1.jpg",
+    "images/desk_3_2.jpg"
+  ],
+  "source": "https://www.ikea.co.il/catalogue/Workspaces/Modular_tables/39932699",
+  "model": "LINNMON/ALEX"
+}

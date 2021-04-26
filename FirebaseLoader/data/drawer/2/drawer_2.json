@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    48,
+    40,
+    55
+  ],
+  "details": {
+    "description": "Also suitable as a bedside drawer for deep drawers; More space stored.",
+    "good_to_know": "Can be combined with other furniture from the drawer series, suitable for about 5 pairs of folded pants or 10 shirts."
+  },
+  "category": "STORAGE FURNITURE",
+  "price": 1199,
+  "color": "white",
+  "rendable": "models/drawer_2.glb",
+  "images": [
+    "images/drawer_2_1.jpg",
+    "images/drawer_2_2.jpg",
+    "images/drawer_2_3.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/malm-chest-of-2-drawers-white-80214549/",
+  "model": "MALM"
+}

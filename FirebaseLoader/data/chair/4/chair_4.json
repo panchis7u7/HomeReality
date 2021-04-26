@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    50,
+    41,
+    95
+  ],
+  "details": {
+    "description": "Solid wood; Durable natural material that can be sanded and processed as needed",
+    "good_to_know": "Solid pine"
+  },
+  "category": "CHAIRS",
+  "price": 549,
+  "color": "wood",
+  "rendable": "models/chair_4.glb",
+  "images": [
+    "images/chair_4_1.jpg",
+    "images/chair_4_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/ivar-chair-pine-90263902/",
+  "model": "IVAR"
+}

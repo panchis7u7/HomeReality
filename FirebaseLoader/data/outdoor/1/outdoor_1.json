@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    32,
+    15,
+    15
+  ],
+  "details": {
+    "description": "Galvanized steel, Powder coating.",
+    "good_to_know": "Only recommended for indoor use."
+  },
+  "category": "OUTDOOR FURNITURE",
+  "price": 249,
+  "color": "white",
+  "rendable": "models/outdoor_1.glb",
+  "images": [
+    "images/outdoor_1_1.jpg",
+    "images/outdoor_1_2.jpg",
+    "images/outdoor_1_3.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/bittergurka-plant-pot-white-80285787/",
+  "model": "BITTERGURKA"
+}

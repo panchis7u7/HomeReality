@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    30,
+    80,
+    83
+  ],
+  "details": {
+    "description": "Solid wood without a finish is a durable natural material, to which an oil or wax finish can be added for easy treatment and even improved durability..",
+    "good_to_know": "You can move the shelves and adjust the space between them as needed."
+  },
+  "category": "KITCHEN CABINETS & APPLIANCES",
+  "price": 395,
+  "color": "wood",
+  "rendable": "models/kitchen_2.glb",
+  "images": [
+    "images/kitchen_2_1.jpg",
+    "images/kitchen_2_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/ivar-cabinet-pine-40033763/",
+  "model": "IVAR"
+}

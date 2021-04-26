@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    58,
+    88,
+    208
+  ],
+  "details": {
+    "description": "Hinges with integrated sling dampers that catch the door so that it closes slowly, quietly and gently.",
+    "good_to_know": "warning! Danger of falling - furniture that is not fixed to the wall may fall."
+  },
+  "category": "CLOTHES STORAGE",
+  "price": 8999,
+  "color": "white",
+  "rendable": "models/wardrobe_1.glb",
+  "images": [
+    "images/wardrobe_1_1.jpg",
+    "images/wardrobe_1_2.jpg",
+    "images/wardrobe_1_3.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/tyssedal-wardrobe-white-mirror-glass-40394750/",
+  "model": "TYSSEDAL"
+}

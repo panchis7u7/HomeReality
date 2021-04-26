@@ -11,22 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="#3d3d3d"
         android:padding="20dp"
         android:gravity="center">
 
         <ImageView
             android:id="@+id/imageViewIconCategory"
-            android:layout_width="100dp"
-            android:layout_height="100dp"/>
+            android:layout_width="80dp"
+            android:layout_height="80dp"/>
 
         <TextView
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
             android:id="@+id/textViewCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:fontFamily="sans-serif"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:text="Ninos"/>
 
     </LinearLayout>

@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    16,
+    50,
+    68
+  ],
+  "details": {
+    "description": "You can hang a variety of items such as coats and necklaces on top of the hooks. The inner shelf can be used to store makeup and sunglasses .",
+    "good_to_know": "Tested and approved for use in the bathroom; Suitable for use in most rooms. Includes safety coating; Reduces damage if the glass breaks."
+  },
+  "category": "MIRRORS",
+  "price": 1799,
+  "color": "yellow",
+  "rendable": "models/mirror_2.glb",
+  "images": [
+    "images/mirror_2_1.jpg",
+    "images/mirror_2_2.jpg"
+  ],
+  "source": "https://www.ikea.co.il/catalogue/Decoration/Mirrors/80297002",
+  "model": "SALTRÖD"
+}

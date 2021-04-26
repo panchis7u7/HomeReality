@@ -1,0 +1,22 @@
+{
+  "sizes": [
+    64,
+    64,
+    45
+  ],
+  "details": {
+    "description": "Separate shelf for storing magazines and the like. Helps maintain order and organization and frees up space on the table.",
+    "good_to_know": "Including wheels; Can be easily moved from place to place."
+  },
+  "category": "TABLES",
+  "price": 999,
+  "color": "WHITE",
+  "rendable": "models/table_3.glb",
+  "images": [
+    "images/table_3_1.jpg",
+    "images/table_3_2.jpg",
+    "images/table_3_3.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/tingby-side-table-on-castors-white-20295925/",
+  "model": "TINGBY"
+}

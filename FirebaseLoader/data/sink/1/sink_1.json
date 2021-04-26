@@ -1,0 +1,21 @@
+{
+  "sizes": [
+    49,
+    82,
+    72
+  ],
+  "details": {
+    "description": "Plain elegance with a matte finish that hides fingerprints and splash marks. Spacious and soft-closing, solid wood drawers. Guaranteed to outlast at least 10 years of steamy showers.",
+    "good_to_know": "GODMORGON legs are sold separately. Please note that in order to connect the sink to the top surface, a silicone kit and a vertical saw must be provided; Sold separately. Includes handles. Includes deck and strainer. Includes faucet and strainer."
+  },
+  "category": "BATHROOOM STORAGE",
+  "price": 6300,
+  "color": "white/wood",
+  "rendable": "models/sink_1.glb",
+  "images": [
+    "images/sink_1_1.jpg",
+    "images/sink_1_2.jpg"
+  ],
+  "source": "https://www.ikea.com/mx/en/p/godmorgon-tolken-toernviken-wsh-stnd-w-countrtop-45x45-wsh-bsn-white-bamboo-s09205417/",
+  "model": "GODMORGON/TOLKEN/TÖRNVIKEN"
+}
