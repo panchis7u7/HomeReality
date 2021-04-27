@@ -35,43 +35,43 @@ class MainActivity : AppCompatActivity() {
     private fun populateList(): MutableList<FurnitureCategory>{
         var items: MutableList<FurnitureCategory> = mutableListOf()
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1XO6o6cBh8iSX9H2X021hJX2qFfcLXfzJ",
                 "Beds & Mattresses"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1Hz5Xok6tmNnV5mh9papSGsjSk-l02P6o",
                 "Desks"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=19l_G9g1pdcwDS5ZuKCqw5exWkB468NCi",
                 "Kitchen cabinets & appliences"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=17UlvxclVYq9XfJF3vFmJt88Vb3dbOFdx",
                 "Chairs"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1GYy_BYSqyTM5a5yQrUk3xIaa6X9rXP2_",
                 "Bathroom Storage"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1bTxvfK1cbY7fv4vZWmseOwCK3-x0yr5P",
                 "Cloth Storage"))
         items.add(FurnitureCategory(
-                "https://www.flaticon.com/svg/vstatic/svg/3081/3081993.svg?token=exp=1618596070~hmac=b609000bdf1ee0384e20579220165eaf",
+                "https://drive.google.com/uc?export=view&id=1pNFeJUKVAdKZI7m52RQrhzOr_7SYrAMV",
                 "Baby and children products"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1fLxmp9GpmhCc464j0sJDZsZp23azIW76",
                 "Mirrors"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1dsywUdgMQLS8vvMVuw7AmILnnj7a3E4a",
                 "Outdoor Furniture"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1iT12HAL1Hg93u34CCuKsTPI1CC9iLPC1",
                 "Small Storage"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1885zEnC_2XsQ5QoCHP0UtcLvg_rQhVUz",
                 "Sofas & armchairs"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1hNPMXWUBI9-uvfHigkxv6FXycKcRzlqq",
                 "Tables"))
         items.add(FurnitureCategory(
-                "https://img.icons8.com/ios/452/test-passed.png",
+                "https://drive.google.com/uc?export=view&id=1BV0njjOQ8LRiDTlUGDyhN9JRO4x83emu",
                 "Lightning"))
         return items
     }
