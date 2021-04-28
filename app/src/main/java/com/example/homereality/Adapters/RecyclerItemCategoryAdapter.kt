@@ -27,7 +27,7 @@ RecyclerView.Adapter<RecyclerItemCategoryAdapter.ItemHolder>(){
             itemView.setOnClickListener {
                 val position: Int = adapterPosition
                 context.startActivity(Intent(context, DepartmentActivity::class.java)
-                    .putExtra("furniture", items.get(position)))
+                    .putExtra("furniture", items.get(position).category))
             }
         }
     }

@@ -57,6 +57,7 @@ class MainActivity : AppCompatActivity() {
             if (controller != null) {
                 controller.hide(WindowInsets.Type.navigationBars()
                         or WindowInsets.Type.captionBar())
+                supportActionBar?.hide()
                 controller.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             }
         } else {
