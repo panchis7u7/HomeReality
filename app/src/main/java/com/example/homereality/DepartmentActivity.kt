@@ -6,12 +6,18 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.homereality.Adapters.RecyclerItemDepartmentAdapter
+import com.example.homereality.Models.Furniture
 import com.example.homereality.Models.FurnitureCategory
 import com.example.homereality.databinding.ActivityDepartmentBinding
+import com.google.firebase.firestore.FirebaseFirestore
 
 class DepartmentActivity : AppCompatActivity() {
     private var _binding: ActivityDepartmentBinding? = null
     private val binding get() = _binding!!
+    private var db: FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,11 +29,35 @@ class DepartmentActivity : AppCompatActivity() {
         var category: String? = ""
         intent?.let {
             category = it.extras?.getString("furniture")
-            binding.textViewMSG.text = category
         }
 
+        binding.recyclerDepartment.layoutManager = LinearLayoutManager(
+            this, RecyclerView.VERTICAL, false)
 
-
+        var items: MutableList<Furniture> = mutableListOf()
+        db = FirebaseFirestore.getInstance()
+        db?.let {
+            it.collection("Furniture").whereEqualTo("category", category?.toUpperCase()).get()
+                .addOnSuccessListener {
+                    it.documents.map { document ->
+                        println("${document}")
+                        items.add(
+                            Furniture(
+                                (document.get("category") as String),
+                                (document.get("color") as String),
+                                (document.get("details") as Map<String?, String?>),
+                                (document.get("images") as List<String?>),
+                                (document.get("model") as String),
+                                (document.get("price") as Long),
+                                (document.get("rendable") as String),
+                                (document.get("sizes") as List<Long?>),
+                                (document.get("source") as String)
+                            )
+                        )
+                    }
+                    binding.recyclerDepartment.adapter = RecyclerItemDepartmentAdapter(this, items)
+                }
+        }
     }
 
     private fun setFullScreen() {
