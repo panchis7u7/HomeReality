@@ -13,10 +13,6 @@ import com.example.homereality.Adapters.RecyclerItemCategoryAdapter
 import com.example.homereality.Models.FurnitureCategory
 import com.example.homereality.databinding.ActivityMainBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -29,9 +25,8 @@ class MainActivity : AppCompatActivity() {
 
         setFullScreen()
         db = FirebaseFirestore.getInstance()
-
         binding.recyclerCategory.layoutManager = GridLayoutManager(applicationContext, 2,
-        LinearLayoutManager.VERTICAL, false)
+                LinearLayoutManager.VERTICAL, false)
         binding.recyclerCategory.setHasFixedSize(false)
 
         populateList()
@@ -41,18 +36,16 @@ class MainActivity : AppCompatActivity() {
     private fun populateList(){
         var items: MutableList<FurnitureCategory> = mutableListOf()
         db?.let {
-            it.collection("Information").get()
-                    .addOnSuccessListener {
-                        it.documents.map { document ->
-                            items.add(FurnitureCategory(
-                                    (document.get("category") as String),
-                                    (document.get("iconBlack") as String),
-                                    (document.get("iconWhite") as String)
-                            ))
-                            Log.d("pr", "${document}")
-                            binding.recyclerCategory.adapter = RecyclerItemCategoryAdapter(this, items )
-                        }
-                    }
+            it.collection("Information").get().addOnSuccessListener {
+                it.documents.map { document ->
+                    items.add(FurnitureCategory(
+                            (document.get("category") as String),
+                            (document.get("iconBlack") as String),
+                            (document.get("iconWhite") as String)
+                    ))
+                    binding.recyclerCategory.adapter = RecyclerItemCategoryAdapter(this, items )
+                }
+            }
         }
     }
 
