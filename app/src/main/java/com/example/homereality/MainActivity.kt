@@ -39,11 +39,11 @@ class MainActivity : AppCompatActivity() {
             it.collection("Information").get().addOnSuccessListener {
                 it.documents.map { document ->
                     items.add(FurnitureCategory(
-                            (document.get("category") as String),
+                            (document.get("category") as String).toLowerCase().capitalize(),
                             (document.get("iconBlack") as String),
                             (document.get("iconWhite") as String)
                     ))
-                    binding.recyclerCategory.adapter = RecyclerItemCategoryAdapter(this, items )
+                    binding.recyclerCategory.adapter = RecyclerItemCategoryAdapter(this, items)
                 }
             }
         }
