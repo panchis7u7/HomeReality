@@ -69,6 +69,6 @@ dependencies {
     //Android Material.
     implementation 'com.google.android.material:material:1.3.0'
 
-    //FaunaDB.
-    implementation group: 'com.faunadb', name: 'faunadb-android', version: '1.2.7'
+    //Kotlin Coroutines.
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0-RC'
 }

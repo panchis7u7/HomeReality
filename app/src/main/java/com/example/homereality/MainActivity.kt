@@ -12,11 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.homereality.Adapters.RecyclerItemCategoryAdapter
 import com.example.homereality.Models.FurnitureCategory
 import com.example.homereality.databinding.ActivityMainBinding
-import java.lang.Exception
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private var db: FirebaseFirestore? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -24,56 +28,32 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setFullScreen()
+        db = FirebaseFirestore.getInstance()
 
         binding.recyclerCategory.layoutManager = GridLayoutManager(applicationContext, 2,
         LinearLayoutManager.VERTICAL, false)
         binding.recyclerCategory.setHasFixedSize(false)
-        binding.recyclerCategory.adapter = RecyclerItemCategoryAdapter(this, populateList())
+
+        populateList()
 
     }
 
-    private fun populateList(): MutableList<FurnitureCategory>{
+    private fun populateList(){
         var items: MutableList<FurnitureCategory> = mutableListOf()
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1XO6o6cBh8iSX9H2X021hJX2qFfcLXfzJ",
-                "Beds & Mattresses"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1Hz5Xok6tmNnV5mh9papSGsjSk-l02P6o",
-                "Desks"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=19l_G9g1pdcwDS5ZuKCqw5exWkB468NCi",
-                "Kitchen cabinets & appliences"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=17UlvxclVYq9XfJF3vFmJt88Vb3dbOFdx",
-                "Chairs"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1GYy_BYSqyTM5a5yQrUk3xIaa6X9rXP2_",
-                "Bathroom Storage"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1bTxvfK1cbY7fv4vZWmseOwCK3-x0yr5P",
-                "Cloth Storage"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1pNFeJUKVAdKZI7m52RQrhzOr_7SYrAMV",
-                "Baby and children products"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1fLxmp9GpmhCc464j0sJDZsZp23azIW76",
-                "Mirrors"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1dsywUdgMQLS8vvMVuw7AmILnnj7a3E4a",
-                "Outdoor Furniture"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1iT12HAL1Hg93u34CCuKsTPI1CC9iLPC1",
-                "Small Storage"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1885zEnC_2XsQ5QoCHP0UtcLvg_rQhVUz",
-                "Sofas & armchairs"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1hNPMXWUBI9-uvfHigkxv6FXycKcRzlqq",
-                "Tables"))
-        items.add(FurnitureCategory(
-                "https://drive.google.com/uc?export=view&id=1BV0njjOQ8LRiDTlUGDyhN9JRO4x83emu",
-                "Lightning"))
-        return items
+        db?.let {
+            it.collection("Information").get()
+                    .addOnSuccessListener {
+                        it.documents.map { document ->
+                            items.add(FurnitureCategory(
+                                    (document.get("category") as String),
+                                    (document.get("iconBlack") as String),
+                                    (document.get("iconWhite") as String)
+                            ))
+                            Log.d("pr", "${document}")
+                            binding.recyclerCategory.adapter = RecyclerItemCategoryAdapter(this, items )
+                        }
+                    }
+        }
     }
 
     private fun setFullScreen() {

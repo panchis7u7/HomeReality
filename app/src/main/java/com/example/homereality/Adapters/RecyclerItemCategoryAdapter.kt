@@ -42,7 +42,7 @@ RecyclerView.Adapter<RecyclerItemCategoryAdapter.ItemHolder>(){
         var item: FurnitureCategory = items.get(position)
         holder.textViewCategoria.text = item.category
         Glide.with(holder.itemView)
-                .load(item.icon)
+                .load(item.iconBlack)
                 .into(holder.imageViewIconCategory)
 
     }
