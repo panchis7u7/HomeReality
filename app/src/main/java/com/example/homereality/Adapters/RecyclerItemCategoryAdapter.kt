@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.homereality.DepartmentActivity
 import com.example.homereality.Models.FurnitureCategory
 import com.example.homereality.R
 
@@ -25,9 +26,10 @@ RecyclerView.Adapter<RecyclerItemCategoryAdapter.ItemHolder>(){
         init {
             itemView.setOnClickListener {
                 val position: Int = adapterPosition
+                context.startActivity(Intent(context, DepartmentActivity::class.java)
+                    .putExtra("furniture", items.get(position)))
             }
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -50,5 +52,4 @@ RecyclerView.Adapter<RecyclerItemCategoryAdapter.ItemHolder>(){
     override fun getItemCount(): Int {
         return items.size
     }
-
 }
