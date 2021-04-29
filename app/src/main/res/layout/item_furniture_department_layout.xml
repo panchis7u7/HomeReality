@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="30dp"
+    app:cardCornerRadius="18dp"
     android:layout_margin="20dp">
 
     <LinearLayout
@@ -14,16 +15,42 @@
 
         <ImageView
             android:id="@+id/imageViewFurniture"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"/>
 
         <TextView
             android:id="@+id/textViewFurnitureModel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:textSize="24sp"
             android:text="Hola"/>
+
+        <TextView
+            android:id="@+id/textViewFurnitureCost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textStyle="italic"
+            android:textColor="@color/black"
+            android:text="50,000$"/>
+
+        <TextView
+            android:id="@+id/textViewFurnitureDimensions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="50 x 41 x 90"/>
+
+        <TextView
+            android:id="@+id/textViewFurnitureMaterial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="Black"/>
 
     </LinearLayout>
 

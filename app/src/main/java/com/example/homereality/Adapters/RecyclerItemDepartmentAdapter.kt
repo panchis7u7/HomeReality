@@ -16,6 +16,8 @@ import com.example.homereality.Modules.GlideModule
 import com.example.homereality.R
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.io.File
 import java.util.regex.Pattern
 
@@ -27,6 +29,9 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
 
         val imageViewFurniture: ImageView = itemView.findViewById(R.id.imageViewFurniture)
         val textViewModel: TextView = itemView.findViewById(R.id.textViewFurnitureModel)
+        val textViewMaterial: TextView = itemView.findViewById(R.id.textViewFurnitureMaterial)
+        val textViewCost: TextView = itemView.findViewById(R.id.textViewFurnitureCost)
+        val textViewDimensions: TextView = itemView.findViewById(R.id.textViewFurnitureDimensions)
 
         init {
 
@@ -44,24 +49,32 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
         var item: Furniture = items.get(position)
-        holder.textViewModel.text = item.model
-        //val localFile: File = File.createTempFile("Furniture", "jpg")
+        GlobalScope.launch {
+            holder.textViewModel.text = item.model
+            holder.textViewMaterial.text = item.color
+            holder.textViewCost.text = "$" + item.price.toString() + "MXN"
+            holder.textViewDimensions.text = item.sizes[0].toString() + " x " +
+                    item.sizes[1].toString() + " x " +
+                    item.sizes[2].toString()
+        }
+
         var storage: FirebaseStorage = FirebaseStorage.getInstance()
         storage?.let {
             var imageRef: StorageReference = it.reference.child(item.images[0]!!)
             GlideApp.with(context)
                 .load(imageRef)
                 .into(holder.imageViewFurniture)
+        }
 
             /* *************************** Alternative using Files!. *******************************
 
+            val localFile: File = File.createTempFile("Furniture", "jpg")
             storage.getReference("images").child(item.images[0]!!.split("/")[1]).getFile(localFile)
                     .addOnSuccessListener {
                         var bitmap: Bitmap = BitmapFactory.decodeFile(localFile.absolutePath)
                         holder.imageViewFurniture.setImageBitmap(bitmap)
 
             }**************************************************************************************/
-        }
     }
 
     override fun getItemCount(): Int {
