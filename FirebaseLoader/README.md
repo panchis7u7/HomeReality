@@ -1,8 +1,5 @@
-# Couch Mirage Firebase loader
-Part of the couch mirage app.Uploads the furniture dataset to firebase
-
-See: https://github.com/arikzilWork/couch-mirage
-
+# Home Reality Firebase loader
+Uploads the furniture dataset to firebase
 
 # instructions
 Open the main.py file and set following attributes:
@@ -17,7 +14,6 @@ To execute run the command:
 ``
 python main.py
 ``
-
 
 # Requirements
     -Python 3.8
