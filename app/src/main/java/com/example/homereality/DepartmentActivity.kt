@@ -40,7 +40,6 @@ class DepartmentActivity : AppCompatActivity() {
             it.collection("Furniture").whereEqualTo("category", category?.toUpperCase()).get()
                 .addOnSuccessListener {
                     it.documents.map { document ->
-                        println("${document}")
                         items.add(
                             Furniture(
                                 (document.get("category") as String),
