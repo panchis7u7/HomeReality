@@ -7,7 +7,7 @@
     android:layout_height="wrap_content"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
-    android:background="@color/white"
+    android:background="@drawable/category_gradient_background"
     tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView

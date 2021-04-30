@@ -13,6 +13,8 @@ import com.example.homereality.Models.Furniture
 import com.example.homereality.Models.FurnitureCategory
 import com.example.homereality.databinding.ActivityDepartmentBinding
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class DepartmentActivity : AppCompatActivity() {
     private var _binding: ActivityDepartmentBinding? = null
@@ -24,15 +26,19 @@ class DepartmentActivity : AppCompatActivity() {
         _binding = ActivityDepartmentBinding.inflate(layoutInflater)
         //setContentView(R.layout.activity_department)
         setContentView(binding.root)
-        setFullScreen()
 
         var category: String? = ""
         intent?.let {
             category = it.extras?.getString("furniture")
         }
 
-        binding.recyclerDepartment.layoutManager = LinearLayoutManager(
-            this, RecyclerView.VERTICAL, false)
+        GlobalScope.launch {
+            supportActionBar!!.title = category
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+            setFullScreen()
+            binding.recyclerDepartment.layoutManager = LinearLayoutManager(
+                    this@DepartmentActivity, RecyclerView.VERTICAL, false)
+        }
 
         var items: MutableList<Furniture> = mutableListOf()
         db = FirebaseFirestore.getInstance()
@@ -59,15 +65,21 @@ class DepartmentActivity : AppCompatActivity() {
         }
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
     private fun setFullScreen() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(true)
             val controller = window.insetsController
             if (controller != null) {
-                controller.hide(
+                /*controller.hide(
                     WindowInsets.Type.navigationBars()
-                        or WindowInsets.Type.captionBar())
-                supportActionBar?.hide()
+                        or WindowInsets.Type.captionBar())*/
+                controller.hide(WindowInsets.Type.navigationBars())
+                //supportActionBar?.hide()
                 controller.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             }
         } else {
