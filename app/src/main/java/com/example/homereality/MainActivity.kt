@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                 //supportActionBar?.hide()
                 controller.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             }
-        } else {
+        } else {/*
             // All below using to hide navigation bar
             val currentApiVersion = Build.VERSION.SDK_INT
             val flags = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-        }
+        */}
     }
 
     override fun onDestroy() {
