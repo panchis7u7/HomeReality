@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.homereality.Models.Furniture
 import com.example.homereality.R
+//import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator
+//import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import me.relex.circleindicator.CircleIndicator3
+import java.util.*
 
 class RecyclerItemDepartmentAdapter(private var context: Context,
                                     private var items: MutableList<Furniture>) :
@@ -26,6 +29,7 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
         val textViewMaterial: TextView = itemView.findViewById(R.id.textViewFurnitureMaterial)
         val textViewCost: TextView = itemView.findViewById(R.id.textViewFurnitureCost)
         val textViewDimensions: TextView = itemView.findViewById(R.id.textViewFurnitureDimensions)
+        val textViewFeatures: TextView = itemView.findViewById(R.id.textViewFeatures)
 
         init {
 
@@ -46,10 +50,14 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
         GlobalScope.launch {
             holder.textViewModel.text = item.model
             holder.textViewMaterial.text = item.color
-            holder.textViewCost.text = "$" + item.price.toString() + "MXN"
+            holder.textViewCost.text = "$" + item.price.toString() + ".00 MXN"
             holder.textViewDimensions.text = item.sizes[0].toString() + " x " +
                     item.sizes[1].toString() + " x " +
                     item.sizes[2].toString()
+            if(Locale.getDefault().language == "en")
+                holder.textViewFeatures.text = item.details.get("description")
+            else
+                holder.textViewFeatures.text = item.details.get("description")
         }
 
         holder.viewPagerFurniture.adapter = FurniturePager(context, item.images)

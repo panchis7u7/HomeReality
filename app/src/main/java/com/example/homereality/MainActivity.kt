@@ -1,5 +1,6 @@
 package com.example.homereality
 
+import android.content.DialogInterface
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -13,9 +14,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.homereality.Adapters.RecyclerItemCategoryAdapter
 import com.example.homereality.Models.FurnitureCategory
 import com.example.homereality.databinding.ActivityMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
@@ -26,6 +29,20 @@ class MainActivity : AppCompatActivity() {
         _binding = ActivityMainBinding.inflate(layoutInflater)
         //setContentView(R.layout.activity_main)
         setContentView(binding.root)
+
+        if(Locale.getDefault().language != "en") {
+            var builder = MaterialAlertDialogBuilder(this)
+            builder.setTitle("Translate app")
+            builder.setMessage("Do you want to translate the app to your system settings? (" +
+                    "${Locale.getDefault().language})?")
+            builder.setPositiveButton("yes", DialogInterface.OnClickListener { dialog, which ->
+
+            })
+            builder.setNegativeButton("no", DialogInterface.OnClickListener { dialog, which ->
+
+            })
+            builder.show()
+        }
 
         GlobalScope.launch {
             val actionBar = supportActionBar
