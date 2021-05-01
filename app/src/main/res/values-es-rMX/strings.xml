@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HomeReality</string>
+    <string name="translate_dialog">Traducir App</string>
+    <string name="translate_message_dialog">Quieres traducir la aplicacion al idioma seleccionado en tus preferencias?</string>
+    <string name="confirmation">Si</string>
+    <string name="no">No</string>
+</resources>

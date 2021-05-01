@@ -32,13 +32,13 @@ class MainActivity : AppCompatActivity() {
 
         if(Locale.getDefault().language != "en") {
             var builder = MaterialAlertDialogBuilder(this)
-            builder.setTitle("Translate app")
-            builder.setMessage("Do you want to translate the app to your system settings? (" +
-                    "${Locale.getDefault().language})?")
-            builder.setPositiveButton("yes", DialogInterface.OnClickListener { dialog, which ->
+            builder.setTitle(getString(R.string.translate_dialog))
+            builder.setMessage(getString(R.string.translate_message_dialog) + " (" +
+                    "${Locale.getDefault().language})")
+            builder.setPositiveButton(getString(R.string.confirmation), DialogInterface.OnClickListener { dialog, which ->
 
             })
-            builder.setNegativeButton("no", DialogInterface.OnClickListener { dialog, which ->
+            builder.setNegativeButton(R.string.no, DialogInterface.OnClickListener { dialog, which ->
 
             })
             builder.show()

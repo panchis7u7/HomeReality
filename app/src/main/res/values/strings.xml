@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HomeReality</string>
+    <string name="translate_dialog">Translate App</string>
+    <string name="translate_message_dialog">Do you want to translate the app to your system settings?</string>
+    <string name="confirmation">Yes</string>
+    <string name="no">No</string>
 </resources>
