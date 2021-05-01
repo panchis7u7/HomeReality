@@ -4,13 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.homereality.Models.Furniture
 import com.example.homereality.R
-//import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator
-//import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import me.relex.circleindicator.CircleIndicator3
@@ -20,9 +21,18 @@ class RecyclerItemDepartmentAdapter(private var context: Context,
                                     private var items: MutableList<Furniture>) :
 RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
 {
+    private var clicked: Boolean = false
+
     inner class ItemHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
-        //val imageViewFurniture: ImageView = itemView.findViewById(R.id.imageViewFurniture)
+        val rotateOpen: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.rotate_open_animation)}
+        val rotateClose: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.rotate_close_animation)}
+        val fromBottom: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.from_bottom_animation)}
+        val toBottom: Animation by lazy { AnimationUtils.loadAnimation(context, R.anim.to_bottom_animation)}
+
+        val floatActionOptions: FloatingActionButton = itemView.findViewById(R.id.floatingButtonOptions)
+        val floatActionOptionAr: FloatingActionButton = itemView.findViewById(R.id.floatingButtonOption1)
+        val floatActionOptionHelp: FloatingActionButton = itemView.findViewById(R.id.floatingButtonOption2)
         val viewPagerFurniture: ViewPager2 = itemView.findViewById(R.id.viewPagerFurniture)
         val circleIndicator: CircleIndicator3 = itemView.findViewById(R.id.circleIndicatorViewPager)
         val textViewModel: TextView = itemView.findViewById(R.id.textViewFurnitureModel)
@@ -54,10 +64,31 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
             holder.textViewDimensions.text = item.sizes[0].toString() + " x " +
                     item.sizes[1].toString() + " x " +
                     item.sizes[2].toString()
-            if(Locale.getDefault().language == "en")
-                holder.textViewFeatures.text = item.details.get("description")
-            else
-                holder.textViewFeatures.text = item.details.get("description")
+            holder.textViewFeatures.text = item.details.get("description")
+            holder.floatActionOptions.setOnClickListener {
+                if(!clicked){
+                    holder.floatActionOptionAr.visibility = View.VISIBLE
+                    holder.floatActionOptionHelp.visibility = View.VISIBLE
+                    holder.floatActionOptionAr.startAnimation(holder.fromBottom)
+                    holder.floatActionOptionHelp.startAnimation(holder.fromBottom)
+                    holder.floatActionOptions.startAnimation(holder.rotateOpen)
+                } else {
+                    holder.floatActionOptionAr.visibility = View.INVISIBLE
+                    holder.floatActionOptionHelp.visibility = View.INVISIBLE
+                    holder.floatActionOptionAr.startAnimation(holder.toBottom)
+                    holder.floatActionOptionHelp.startAnimation(holder.toBottom)
+                    holder.floatActionOptions.startAnimation(holder.rotateClose)
+                }
+                clicked = !clicked
+            }
+
+            holder.floatActionOptionAr.setOnClickListener {
+
+            }
+
+            holder.floatActionOptionHelp.setOnClickListener {
+
+            }
         }
 
         holder.viewPagerFurniture.adapter = FurniturePager(context, item.images)
@@ -76,8 +107,6 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
             }**************************************************************************************/
     }
 
-    override fun getItemCount(): Int {
-        return items.size
-    }
+    override fun getItemCount(): Int = items.size
 
 }

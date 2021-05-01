@@ -10,28 +10,87 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="20dp">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="10dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp" >
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPagerFurniture"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <me.relex.circleindicator.CircleIndicator3
-                android:id="@+id/circleIndicatorViewPager"
-                android:layout_width="match_parent"
-                app:ci_drawable="@drawable/black_radius"
-                android:layout_height="28dp"/>
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerFurniture"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"/>
 
-        </LinearLayout>
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/circleIndicatorViewPager"
+                    android:layout_width="match_parent"
+                    app:ci_drawable="@drawable/black_radius"
+                    android:layout_height="28dp"/>
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:elevation="20dp">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingButtonOptions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/lavender"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/icon_expand_more"
+                    app:elevation="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_margin="10dp"/>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingButtonOption1"
+                    android:backgroundTint="@color/green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/icon_ar"
+                    android:visibility="invisible"
+                    app:elevation="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/floatingButtonOptions" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floatingButtonOption2"
+                    android:backgroundTint="@color/green"
+                    android:src="@drawable/icon_help"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:elevation="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/floatingButtonOption1" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

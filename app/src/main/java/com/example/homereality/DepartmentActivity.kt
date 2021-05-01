@@ -3,21 +3,16 @@ package com.example.homereality
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homereality.Adapters.RecyclerItemDepartmentAdapter
 import com.example.homereality.Models.Furniture
-import com.example.homereality.Models.FurnitureCategory
 import com.example.homereality.databinding.ActivityDepartmentBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import java.util.*
 
 class DepartmentActivity : AppCompatActivity() {

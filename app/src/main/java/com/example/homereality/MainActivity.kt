@@ -31,19 +31,19 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
         setContentView(binding.root)
 
-        if(Locale.getDefault().language != "en") {
+        /*if(Locale.getDefault().language != "en") {
             var builder = MaterialAlertDialogBuilder(this)
             builder.setTitle(getString(R.string.translate_dialog))
             builder.setMessage(getString(R.string.translate_message_dialog) + " (" +
                     "${Locale.getDefault().language})")
             builder.setPositiveButton(getString(R.string.confirmation), DialogInterface.OnClickListener { dialog, which ->
-
+                MainActivity.translate = true
             })
             builder.setNegativeButton(R.string.no, DialogInterface.OnClickListener { dialog, which ->
-
+                MainActivity.translate = false
             })
             builder.show()
-        }
+        }*/
 
         GlobalScope.launch {
             val actionBar = supportActionBar
@@ -57,6 +57,10 @@ class MainActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         populateList()
 
+    }
+
+    companion object {
+        var translate: Boolean = false
     }
 
     private fun populateList(){
