@@ -1,6 +1,7 @@
 package com.example.homereality.Adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import android.view.animation.AnimationUtils
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.example.homereality.ARSceneActivity
 import com.example.homereality.Models.Furniture
 import com.example.homereality.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -83,7 +85,7 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
             }
 
             holder.floatActionOptionAr.setOnClickListener {
-
+                context.startActivity(Intent(context ,ARSceneActivity::class.java).putExtra("model", item.rendable))
             }
 
             holder.floatActionOptionHelp.setOnClickListener {
