@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/searchNewAsset"
+        android:title="Search"
+        android:icon="@drawable/icon_search"/>
+    <item android:id="@+id/takePhoto"
+        android:title="Take Photo"
+        android:icon="@drawable/icon_camera"/>
+    <item android:id="@+id/ruler"
+        android:title="resize"
+        android:icon="@drawable/icon_ruler"/>
+</menu>
