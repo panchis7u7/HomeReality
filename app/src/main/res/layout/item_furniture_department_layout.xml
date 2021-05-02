@@ -54,6 +54,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/floatingButtonOption1"
                     android:layout_margin="10dp"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -61,10 +62,12 @@
                     android:backgroundTint="@color/green"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    app:fabCustomSize="48dp"
+                    app:maxImageSize="30dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="10dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:src="@drawable/icon_ar"
@@ -72,7 +75,8 @@
                     app:elevation="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/floatingButtonOptions" />
+                    app:layout_constraintTop_toBottomOf="@id/floatingButtonOptions"
+                    app:layout_constraintBottom_toTopOf="@id/floatingButtonOption2"/>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/floatingButtonOption2"
@@ -85,6 +89,8 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="15dp"
+                    app:fabCustomSize="48dp"
+                    app:maxImageSize="30dp"
                     android:clickable="true"
                     android:focusable="true"
                     app:elevation="8dp"
@@ -141,6 +147,15 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/textViewFurnitureMaterial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/googlesans_italic"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:text="Black"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -155,15 +170,6 @@
                     android:textSize="20sp"
                     android:text="Features"/>
 
-                <TextView
-                    android:id="@+id/textViewFurnitureMaterial"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/googlesans_italic"
-                    android:textColor="@color/white"
-                    android:layout_marginLeft="40dp"
-                    android:textSize="16sp"
-                    android:text="Black"/>
 
             </LinearLayout>
 
