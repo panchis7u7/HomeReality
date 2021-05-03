@@ -31,20 +31,6 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
         setContentView(binding.root)
 
-        /*if(Locale.getDefault().language != "en") {
-            var builder = MaterialAlertDialogBuilder(this)
-            builder.setTitle(getString(R.string.translate_dialog))
-            builder.setMessage(getString(R.string.translate_message_dialog) + " (" +
-                    "${Locale.getDefault().language})")
-            builder.setPositiveButton(getString(R.string.confirmation), DialogInterface.OnClickListener { dialog, which ->
-                MainActivity.translate = true
-            })
-            builder.setNegativeButton(R.string.no, DialogInterface.OnClickListener { dialog, which ->
-                MainActivity.translate = false
-            })
-            builder.show()
-        }*/
-
         GlobalScope.launch {
             val actionBar = supportActionBar
             actionBar!!.title = "Categorias"
@@ -59,9 +45,8 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    companion object {
-        var translate: Boolean = false
-    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    /** Retrieve all categorys from firebase. **/
 
     private fun populateList(){
         var items: MutableList<FurnitureCategory> = mutableListOf()
@@ -78,6 +63,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    /** Enable fullscreen activity. **/
 
     private fun setFullScreen() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -116,9 +106,15 @@ class MainActivity : AppCompatActivity() {
         */}
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    /** Free resources. **/
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////
 }
