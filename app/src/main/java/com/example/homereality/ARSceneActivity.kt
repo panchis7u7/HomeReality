@@ -4,6 +4,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.KeyCharacterMap
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homereality.databinding.ActivityARSceneBinding
@@ -12,6 +13,8 @@ import com.google.ar.core.ArCoreApk
 import com.google.ar.core.ArCoreApk.Availability
 import com.google.ar.core.ArCoreApk.InstallStatus
 import com.google.ar.sceneform.AnchorNode
+import com.google.ar.sceneform.Camera
+import com.google.ar.sceneform.Sun
 import com.google.ar.sceneform.assets.RenderableSource
 import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.rendering.Renderable
@@ -26,8 +29,13 @@ class ARSceneActivity : AppCompatActivity() {
     private var _binding: ActivityARSceneBinding? = null
     private val binding get() = _binding!!
     private var storage: FirebaseStorage? = null
-    private val TAG: String = ARSceneActivity::class.java.simpleName
-    private val MIN_OPENGL_VERSION = 3.0
+    //private val TAG: String = ARSceneActivity::class.java.simpleName
+    //private val MIN_OPENGL_VERSION = 3.0
+    var arFragment: ArFragment? = null
+
+    // measurement related
+    //private lateinit var box: MeasurementBox
+    //private var userMeasurements: BoxMeasurements? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +43,7 @@ class ARSceneActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_a_r_scene)
         setContentView(binding.root)
 
-        var arFragment: ArFragment = supportFragmentManager.findFragmentById(R.id.fragmentARScene) as ArFragment
+        arFragment = supportFragmentManager.findFragmentById(R.id.fragmentARScene) as ArFragment
 
         var modelLocation: String? = ""
         intent?.let {
@@ -51,11 +59,11 @@ class ARSceneActivity : AppCompatActivity() {
             storageRef.getFile(model).addOnSuccessListener {
 
                 Log.d("Model Recieved", "-----------------------> Model Downloaded!")
-                Toast.makeText(arFragment.context, "Model Downloaded!", Toast.LENGTH_SHORT).show()
-                arFragment.setOnTapArPlaneListener { hitResult, plane, motionEvent ->
+                Toast.makeText(arFragment!!.context, "Model Downloaded!", Toast.LENGTH_SHORT).show()
+                arFragment!!.setOnTapArPlaneListener { hitResult, plane, motionEvent ->
                     Log.d("AR init.", "-----------------------> Setting up AR!")
                     var anchor: Anchor = hitResult.createAnchor()
-                    buildModel(model, arFragment, anchor)
+                    buildModel(model, arFragment!!, anchor)
                 }
 
             }
@@ -90,6 +98,32 @@ class ARSceneActivity : AppCompatActivity() {
         arFragment.arSceneView.scene.addChild(anchorNode)
         node.select()
     }
+
+    /*private fun onClear() {
+        val children = ArrayList(arFragment!!.arSceneView.scene.children)
+        for (node in children) {
+            if (node is AnchorNode) {
+                if (node.anchor != null) {
+                    node.anchor!!.detach()
+                }
+            }
+            if (node !is Camera && node !is Sun) {
+                node.setParent(null)
+            }
+        }
+        box.clear()
+        findViewById<IndicatorStayLayout>(R.id.indicator_container).visibility = View.GONE
+        seekBar.setProgress(0f)
+
+        //
+        changeInfoStageToYellow()
+
+        //
+        seekBar.visibility = View.GONE
+        minusButton.visibility = View.GONE
+        plusButton.visibility = View.GONE
+        userMeasurements = null
+    }*/
 
     override fun onDestroy() {
         super.onDestroy()
