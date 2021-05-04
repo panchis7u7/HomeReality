@@ -7,6 +7,8 @@ import android.view.KeyCharacterMap
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.homereality.Features.BoxMeasurements
+import com.example.homereality.Features.MeasurementBox
 import com.example.homereality.databinding.ActivityARSceneBinding
 import com.google.ar.core.Anchor
 import com.google.ar.core.ArCoreApk
@@ -16,6 +18,7 @@ import com.google.ar.sceneform.AnchorNode
 import com.google.ar.sceneform.Camera
 import com.google.ar.sceneform.Sun
 import com.google.ar.sceneform.assets.RenderableSource
+import com.google.ar.sceneform.rendering.Color
 import com.google.ar.sceneform.rendering.ModelRenderable
 import com.google.ar.sceneform.rendering.Renderable
 import com.google.ar.sceneform.ux.ArFragment
@@ -29,18 +32,23 @@ class ARSceneActivity : AppCompatActivity() {
     private var _binding: ActivityARSceneBinding? = null
     private val binding get() = _binding!!
     private var storage: FirebaseStorage? = null
-    //private val TAG: String = ARSceneActivity::class.java.simpleName
-    //private val MIN_OPENGL_VERSION = 3.0
-    var arFragment: ArFragment? = null
+    private var arFragment: ArFragment? = null
+    private val TAG: String = ARSceneActivity::class.java.simpleName
+    private val MIN_OPENGL_VERSION = 3.0
 
-    // measurement related
-    //private lateinit var box: MeasurementBox
-    //private var userMeasurements: BoxMeasurements? = null
+    /** Renderable constants. **/
+    val CUBE_RENDABLE_RADIUS = 0.01f
+    val CUBE_RENDABLE_COLOR = Color(0F, 255F, 0F, 0F)
+    val CUBE_RENDABLE_SQUARE_COLOR = Color(0F, 0.05F, 0F, 0.9F)
+
+    /** Measurement related. **/
+    private lateinit var box: MeasurementBox
+    private var userMeasurements: BoxMeasurements? = null
+    private var measuredSelected: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityARSceneBinding.inflate(layoutInflater)
-        //setContentView(R.layout.activity_a_r_scene)
         setContentView(binding.root)
 
         arFragment = supportFragmentManager.findFragmentById(R.id.fragmentARScene) as ArFragment
@@ -71,6 +79,7 @@ class ARSceneActivity : AppCompatActivity() {
         } else {
             finish()
         }
+        setupRulerButton()
     }
 
     private fun buildModel(model: File, arFragment: ArFragment, anchor: Anchor) {
@@ -97,6 +106,19 @@ class ARSceneActivity : AppCompatActivity() {
         node.setParent(anchorNode)
         arFragment.arSceneView.scene.addChild(anchorNode)
         node.select()
+    }
+
+    private fun setupRulerButton(){
+        binding.bottomAppBarNavigation.menu.getItem(2).setOnMenuItemClickListener {
+            Toast.makeText(this, "Ruler button pressed!", Toast.LENGTH_LONG).show()
+            if(!measuredSelected){
+                measuredSelected = true
+
+            } else {
+
+            }
+            return@setOnMenuItemClickListener true
+        }
     }
 
     /*private fun onClear() {

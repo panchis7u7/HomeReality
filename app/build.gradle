@@ -79,4 +79,7 @@ dependencies {
 
     //Kotlin Coroutines.
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0-RC'
+
+    //Custom UI Components.
+    implementation 'com.github.warkiz.widget:indicatorseekbar:2.1.2'
 }
