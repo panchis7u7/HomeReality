@@ -1,12 +1,15 @@
 package com.example.homereality
 
+import android.content.Context
 import android.net.Uri
 import android.os.Bundle
+import android.util.AttributeSet
 import android.util.Log
 import android.view.KeyCharacterMap
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
 import com.example.homereality.Features.BoxMeasurements
 import com.example.homereality.Features.MeasurementBox
 import com.example.homereality.databinding.ActivityARSceneBinding
@@ -51,6 +54,8 @@ class ARSceneActivity : AppCompatActivity() {
         _binding = ActivityARSceneBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.bottomAppBarNavigation.setOnApplyWindowInsetsListener(null)
+
         arFragment = supportFragmentManager.findFragmentById(R.id.fragmentARScene) as ArFragment
 
         var modelLocation: String? = ""
@@ -79,7 +84,7 @@ class ARSceneActivity : AppCompatActivity() {
         } else {
             finish()
         }
-        setupRulerButton()
+
     }
 
     private fun buildModel(model: File, arFragment: ArFragment, anchor: Anchor) {

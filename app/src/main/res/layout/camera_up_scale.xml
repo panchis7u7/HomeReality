@@ -27,19 +27,21 @@
 
         <com.warkiz.widget.IndicatorStayLayout
             android:id="@+id/indicatorStayLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="70dp"
             android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageViewIncrementHeight"
             app:layout_constraintStart_toEndOf="@+id/imageViewDecrementHeight"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.warkiz.widget.IndicatorSeekBar
                 android:id="@+id/slider"
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
-                app:isb_indicator_color="#CC787878"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                app:isb_indicator_color="@color/black"
                 app:isb_indicator_text_color="#69E781"
                 app:isb_indicator_text_size="18sp"
                 app:isb_max="300"

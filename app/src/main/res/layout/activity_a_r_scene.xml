@@ -7,24 +7,24 @@
     android:layout_height="match_parent"
     tools:context=".ARSceneActivity">
 
-    <fragment
-        android:id="@+id/fragmentARScene"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.google.ar.sceneform.ux.ArFragment"/>
+        <fragment
+            android:id="@+id/fragmentARScene"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.google.ar.sceneform.ux.ArFragment"/>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomAppBarNavigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/corners_background"
-        android:layout_margin="20dp"
-        app:itemIconSize="26dp"
-        app:menu="@menu/bottom_menu_actionbar"
-        app:labelVisibilityMode="unlabeled"
-        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
-        android:layout_gravity="bottom">
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomAppBarNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:menu="@menu/bottom_menu_actionbar"
+            app:elevation="20dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="20dp"
+            android:background="@drawable/corners_background"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+            app:labelVisibilityMode="unlabeled">
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
