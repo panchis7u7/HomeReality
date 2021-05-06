@@ -55,7 +55,6 @@ class ARSceneActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bottomAppBarNavigation.setOnApplyWindowInsetsListener(null)
-
         arFragment = supportFragmentManager.findFragmentById(R.id.fragmentARScene) as ArFragment
 
         var modelLocation: String? = ""
@@ -84,7 +83,7 @@ class ARSceneActivity : AppCompatActivity() {
         } else {
             finish()
         }
-
+        setupRulerButton()
     }
 
     private fun buildModel(model: File, arFragment: ArFragment, anchor: Anchor) {
