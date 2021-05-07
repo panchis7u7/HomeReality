@@ -2,6 +2,7 @@ package com.example.homereality.Adapters
 
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -131,18 +132,17 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
             .findViewById<ConstraintLayout>(R.id.load_animation)
 
         if (item.rendable != "") {
-
+            loading.visibility = View.VISIBLE
             val storageRef: StorageReference = storage.reference.child(item.rendable!!)
             storageRef.getFile(model).addOnSuccessListener {
-                isLoading = false
-                context.startActivity(Intent(context ,ARSceneActivity::class.java)
-                    .putExtra("model", model)
-                    .putExtra("length", item.sizes[0])
-                    .putExtra("width", item.sizes[1])
-                    .putExtra("height", item.sizes[2]))
+                var bundle = Bundle()
+                bundle.putSerializable("model", model)
+                    bundle.putLong("length", item.sizes[0]!!)
+                    bundle.putLong("width", item.sizes[1]!!)
+                    bundle.putLong("height", item.sizes[2]!!)
+                loading.visibility = View.INVISIBLE
+                context.startActivity(Intent(context, ARSceneActivity::class.java).putExtras(bundle))
             }
-            isLoading = true
-            loading.visibility = View.VISIBLE
         } else {
             Toast.makeText(context, "Error downloading the model!!", Toast.LENGTH_LONG).show()
         }

@@ -11,19 +11,10 @@
             android:id="@+id/fragmentARScene"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="com.example.homereality.Fragments.ARFragment"/>
+            android:name="com.google.ar.sceneform.ux.ArFragment"/>
 
         <include
             layout="@layout/camera_up_scale"/>
-
-        <include
-            layout="@layout/loading_animation_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomAppBarNavigation"
