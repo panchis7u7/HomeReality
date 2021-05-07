@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.ar.core.Plane
 import com.example.homereality.ARSceneActivity
+import com.example.homereality.R
 import com.google.ar.core.TrackingState
 import com.google.ar.sceneform.FrameTime
 import com.google.ar.sceneform.Scene
@@ -22,7 +24,7 @@ class ARFragment : ArFragment(), Scene.OnUpdateListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view = super.onCreateView(inflater, container, savedInstanceState)
+        val view = super.onCreateView(inflater, container, savedInstanceState)
 
         planeDiscoveryController.hide()
         planeDiscoveryController.setInstructionView(null)
