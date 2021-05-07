@@ -7,16 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.homereality.ARSceneActivity
+import com.example.homereality.DepartmentActivity
+import com.example.homereality.Fragments.LoadingDialogFragment
 import com.example.homereality.Models.Furniture
 import com.example.homereality.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import me.relex.circleindicator.CircleIndicator3
+import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -24,6 +32,8 @@ class RecyclerItemDepartmentAdapter(private var context: Context,
                                     private var items: MutableList<Furniture>) :
 RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
 {
+    private var isLoading = false
+    private val loadingDialogFragment by lazy { LoadingDialogFragment() }
     private var clicked: Boolean = false
 
     inner class ItemHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -86,11 +96,7 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
             }
 
             holder.floatActionOptionAr.setOnClickListener {
-                context.startActivity(Intent(context ,ARSceneActivity::class.java)
-                    .putExtra("model", item.rendable)
-                    .putExtra("length", item.sizes[0])
-                    .putExtra("width", item.sizes[1])
-                    .putExtra("height", item.sizes[2]))
+                downloadModel(holder, item)
             }
 
             holder.floatActionOptionHelp.setOnClickListener {
@@ -115,5 +121,31 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
     }
 
     override fun getItemCount(): Int = items.size
+
+    /** Download the model. **/
+    private fun downloadModel(holder: ItemHolder, item: Furniture){
+
+        val storage = FirebaseStorage.getInstance()
+        val model: File = File.createTempFile("model", "glb")
+        val loading = (holder.itemView.context as DepartmentActivity)
+            .findViewById<ConstraintLayout>(R.id.load_animation)
+
+        if (item.rendable != "") {
+
+            val storageRef: StorageReference = storage.reference.child(item.rendable!!)
+            storageRef.getFile(model).addOnSuccessListener {
+                isLoading = false
+                context.startActivity(Intent(context ,ARSceneActivity::class.java)
+                    .putExtra("model", model)
+                    .putExtra("length", item.sizes[0])
+                    .putExtra("width", item.sizes[1])
+                    .putExtra("height", item.sizes[2]))
+            }
+            isLoading = true
+            loading.visibility = View.VISIBLE
+        } else {
+            Toast.makeText(context, "Error downloading the model!!", Toast.LENGTH_LONG).show()
+        }
+    }
 
 }

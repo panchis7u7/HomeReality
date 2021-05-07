@@ -14,4 +14,6 @@
         android:layout_height="match_parent"
         tools:listitem="@layout/item_furniture_department_layout"/>
 
+    <include layout="@layout/loading_animation_layout"/>
+
 </LinearLayout>

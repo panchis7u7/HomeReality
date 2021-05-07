@@ -43,7 +43,7 @@ class ARSceneActivity : AppCompatActivity() {
     private val binding get() = _binding!!
     private var storage: FirebaseStorage? = null
     private var arFragment: ArFragment? = null
-    var model: File = File.createTempFile("model", "glb")
+    private var model: File? = null
     private val TAG: String = ARSceneActivity::class.java.simpleName
     private val MIN_OPENGL_VERSION = 3.0
 
@@ -78,9 +78,8 @@ class ARSceneActivity : AppCompatActivity() {
         binding.bottomAppBarNavigation.setOnApplyWindowInsetsListener(null)
         arFragment = supportFragmentManager.findFragmentById(R.id.fragmentARScene) as ArFragment
 
-        var modelLocation: String? = ""
         intent?.let {
-            modelLocation = it.extras?.getString("model")
+            model = it.extras?.get("model") as File
             modelLength = it.extras?.getLong("length")!!.toFloat()
             modelWidth = it.extras?.getLong("width")!!.toFloat()
             modelHeight = it.extras?.getLong("height")!!.toFloat()
@@ -90,8 +89,7 @@ class ARSceneActivity : AppCompatActivity() {
             modelHeight /= 100f
         }
 
-        storage = FirebaseStorage.getInstance()
-        downloadModel(modelLocation)
+        setArFragmentAction(model!!)
 
         setupToasty()
         setupBox()
@@ -99,20 +97,6 @@ class ARSceneActivity : AppCompatActivity() {
         onClear()
         setupClearButton()
         setupRulerButton()
-    }
-
-    private fun downloadModel(location: String?){
-        //Check if firebase storgage is up and ARCore is supported and up to date.
-        if (storage != null && location != "") {
-            var storageRef: StorageReference = storage!!.reference.child(location!!)
-            storageRef.getFile(model).addOnSuccessListener {
-                Toast.makeText(arFragment!!.context, "Model Downloaded!", Toast.LENGTH_SHORT).show()
-                setArFragmentAction(model)
-            }
-        } else {
-            Toast.makeText(arFragment!!.context, "Error!", Toast.LENGTH_LONG)
-            finish()
-        }
     }
 
     private fun setArFragmentAction(model: File){
