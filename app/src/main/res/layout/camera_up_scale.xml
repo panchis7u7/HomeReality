@@ -8,77 +8,100 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageViewDecrementHeight"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:backgroundTint="@color/black"
-            android:src="@drawable/icon_remove"
-            app:backgroundTint="@color/scale_btn_tint"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/indicatorStayLayout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:rippleColor="@color/scale_btn_ripple" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
-        <com.warkiz.widget.IndicatorStayLayout
-            android:id="@+id/indicatorStayLayout"
-            android:gravity="center"
-            android:layout_width="200dp"
+            <ImageView
+                android:id="@+id/imageViewDecrementHeight"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/black"
+                android:src="@drawable/icon_remove"
+                app:backgroundTint="@color/scale_btn_tint"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/indicatorStayLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:rippleColor="@color/scale_btn_ripple" />
+
+            <com.warkiz.widget.IndicatorStayLayout
+                android:id="@+id/indicatorStayLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageViewIncrementHeight"
+                app:layout_constraintStart_toEndOf="@+id/imageViewDecrementHeight"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.warkiz.widget.IndicatorSeekBar
+                    android:id="@+id/slider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    app:isb_indicator_color="@color/white"
+                    app:isb_indicator_text_color="@color/black"
+                    app:isb_indicator_text_size="18sp"
+                    app:isb_max="300"
+                    app:isb_min="00"
+                    app:isb_only_thumb_draggable="false"
+                    app:isb_progress="0"
+                    app:isb_seek_smoothly="true"
+                    app:isb_show_indicator="rounded_rectangle"
+                    app:isb_show_tick_marks_type="oval"
+                    app:isb_show_tick_texts="true"
+                    app:isb_thumb_color="@android:color/darker_gray"
+                    app:isb_thumb_size="20dp"
+                    app:isb_tick_marks_drawable="@mipmap/ic_launcher"
+                    app:isb_tick_marks_size="13dp"
+                    app:isb_tick_texts_color="@color/lightBlue"
+                    app:isb_tick_texts_size="15dp"
+                    app:isb_ticks_count="0"
+                    app:isb_track_background_color="@color/slideBarShadow"
+                    app:isb_track_background_size="2dp"
+                    app:isb_track_progress_color="@color/black"
+                    app:isb_track_progress_size="4dp" />
+
+            </com.warkiz.widget.IndicatorStayLayout>
+
+            <ImageView
+                android:id="@+id/imageViewIncrementHeight"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/scale_btn_tint"
+                android:src="@drawable/icon_add"
+                app:backgroundTint="@color/scale_btn_tint"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/indicatorStayLayout"
+                app:layout_constraintTop_toTopOf="parent"
+                app:rippleColor="@color/scale_btn_ripple" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonClear"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/indicatorStayLayout"
+            app:layout_constraintStart_toStartOf="@id/indicatorStayLayout"
+            app:layout_constraintEnd_toEndOf="@id/indicatorStayLayout"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageViewIncrementHeight"
-            app:layout_constraintStart_toEndOf="@+id/imageViewDecrementHeight"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="clear"
+            android:textColor="@color/black"
+            android:elevation="2dp"
+            android:backgroundTint="@color/white"/>
 
-            <com.warkiz.widget.IndicatorSeekBar
-                android:id="@+id/slider"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="10dp"
-                android:layout_gravity="center"
-                app:isb_indicator_color="@color/black"
-                app:isb_indicator_text_color="#69E781"
-                app:isb_indicator_text_size="18sp"
-                app:isb_max="300"
-                app:isb_min="00"
-                app:isb_only_thumb_draggable="false"
-                app:isb_progress="0"
-                app:isb_seek_smoothly="true"
-                app:isb_show_indicator="rounded_rectangle"
-                app:isb_show_tick_marks_type="oval"
-                app:isb_show_tick_texts="true"
-                app:isb_thumb_color="@android:color/darker_gray"
-                app:isb_thumb_size="20dp"
-                app:isb_tick_marks_drawable="@mipmap/ic_launcher"
-                app:isb_tick_marks_size="13dp"
-                app:isb_tick_texts_color="@color/lightBlue"
-                app:isb_tick_texts_size="15dp"
-                app:isb_ticks_count="0"
-                app:isb_track_background_color="@color/slideBarShadow"
-                app:isb_track_background_size="2dp"
-                app:isb_track_progress_color="#69E781"
-                app:isb_track_progress_size="4dp" />
-
-        </com.warkiz.widget.IndicatorStayLayout>
-
-        <ImageView
-            android:id="@+id/imageViewIncrementHeight"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:backgroundTint="@color/scale_btn_tint"
-            android:src="@drawable/icon_add"
-            app:backgroundTint="@color/scale_btn_tint"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/indicatorStayLayout"
-            app:layout_constraintTop_toTopOf="parent"
-            app:rippleColor="@color/scale_btn_ripple" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </com.google.android.material.navigation.NavigationView>

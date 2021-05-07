@@ -18,6 +18,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import me.relex.circleindicator.CircleIndicator3
 import java.util.*
+import kotlin.collections.ArrayList
 
 class RecyclerItemDepartmentAdapter(private var context: Context,
                                     private var items: MutableList<Furniture>) :
@@ -85,7 +86,11 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
             }
 
             holder.floatActionOptionAr.setOnClickListener {
-                context.startActivity(Intent(context ,ARSceneActivity::class.java).putExtra("model", item.rendable))
+                context.startActivity(Intent(context ,ARSceneActivity::class.java)
+                    .putExtra("model", item.rendable)
+                    .putExtra("length", item.sizes[0])
+                    .putExtra("width", item.sizes[1])
+                    .putExtra("height", item.sizes[2]))
             }
 
             holder.floatActionOptionHelp.setOnClickListener {

@@ -13,6 +13,9 @@
             android:layout_height="match_parent"
             android:name="com.google.ar.sceneform.ux.ArFragment"/>
 
+        <include
+            layout="@layout/camera_up_scale"/>
+
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomAppBarNavigation"
             android:layout_width="match_parent"
