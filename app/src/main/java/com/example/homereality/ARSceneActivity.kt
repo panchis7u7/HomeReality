@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat
 import com.example.homereality.Features.*
 import com.example.homereality.databinding.ActivityARSceneBinding
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.navigation.NavigationView
 import com.google.ar.core.Anchor
 import com.google.ar.core.ArCoreApk.InstallStatus
 import com.google.ar.core.HitResult
@@ -59,6 +60,7 @@ class ARSceneActivity : AppCompatActivity() {
 
     /** seekbar related. **/
     private var isSeeking = false
+    lateinit var navigationView: NavigationView
     lateinit var seekBar: IndicatorSeekBar
     lateinit var minusButton: ImageView
     lateinit var plusButton: ImageView
@@ -121,6 +123,7 @@ class ARSceneActivity : AppCompatActivity() {
 
                 if(box.getAnchorListSize() == 3){
                     box.drawSquare()
+                    navigationView.visibility = View.VISIBLE
                     seekBar.visibility = View.VISIBLE
                     minusButton.visibility = View.VISIBLE
                     plusButton.visibility = View.VISIBLE
@@ -200,8 +203,10 @@ class ARSceneActivity : AppCompatActivity() {
     }
 
     private fun setSeekBar(){
+        navigationView = findViewById(R.id.navigationViewSliderSize)
         seekBar = findViewById(R.id.slider)
         seekBar.setIndicatorTextFormat("\${PROGRESS} cm")
+        navigationView.visibility = View.GONE
         seekBar.visibility = View.GONE
 
         seekBar.onSeekChangeListener = (object : OnSeekChangeListener{
@@ -240,6 +245,7 @@ class ARSceneActivity : AppCompatActivity() {
                 clear.visibility = View.VISIBLE
             } else if(measuredSelected && box.getMeasurementStage() == MeasurementStage.HEIGHT){
                 userMeasurements = box.getBoxMeasurements()
+                navigationView.visibility = View.GONE
                 seekBar.visibility = View.GONE
                 minusButton.visibility = View.GONE
                 plusButton.visibility = View.GONE
@@ -272,10 +278,7 @@ class ARSceneActivity : AppCompatActivity() {
         findViewById<IndicatorStayLayout>(R.id.indicatorStayLayout).visibility = View.GONE
         seekBar.setProgress(0f)
 
-        //
-        //changeInfoStageToYellow()
-
-        //
+        navigationView.visibility = View.GONE
         seekBar.visibility = View.GONE
         minusButton.visibility = View.GONE
         plusButton.visibility = View.GONE

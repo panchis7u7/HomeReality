@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.navigation.NavigationView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/corners_background"
-    android:layout_margin="20dp"
-    android:id="@+id/navigationViewSliderSize"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
 
-    <LinearLayout
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationViewSliderSize"
+        android:background="@drawable/corners_background"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -40,7 +44,6 @@
                 app:layout_constraintEnd_toStartOf="@+id/imageViewIncrementHeight"
                 app:layout_constraintStart_toEndOf="@+id/imageViewDecrementHeight"
                 app:layout_constraintTop_toTopOf="parent">
-
                 <com.warkiz.widget.IndicatorSeekBar
                     android:id="@+id/slider"
                     android:layout_width="wrap_content"
@@ -69,7 +72,6 @@
                     app:isb_track_background_size="2dp"
                     app:isb_track_progress_color="@color/black"
                     app:isb_track_progress_size="4dp" />
-
             </com.warkiz.widget.IndicatorStayLayout>
 
             <ImageView
@@ -87,21 +89,24 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonClear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/indicatorStayLayout"
-            app:layout_constraintStart_toStartOf="@id/indicatorStayLayout"
-            app:layout_constraintEnd_toEndOf="@id/indicatorStayLayout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:text="clear"
-            android:textColor="@color/black"
-            android:elevation="2dp"
-            android:backgroundTint="@color/white"/>
+    </com.google.android.material.navigation.NavigationView>
 
-    </LinearLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonClear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/indicatorStayLayout"
+        app:layout_constraintStart_toStartOf="@id/indicatorStayLayout"
+        app:layout_constraintEnd_toEndOf="@id/indicatorStayLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="clear"
+        android:textColor="@color/grey"
+        app:cornerRadius="10dp"
+        android:elevation="20dp"
+        android:backgroundTint="@color/white"/>
 
-</com.google.android.material.navigation.NavigationView>
+</LinearLayout>

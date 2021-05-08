@@ -17,8 +17,8 @@ import com.google.ar.sceneform.ux.ArFragment
 
 class ARFragment : ArFragment(), Scene.OnUpdateListener {
     /** Reference to the AR Scene activity. **/
-    private var cameraActivity: ARSceneActivity? = null
-    private var animationLayout: ConstraintLayout? = null
+    var cameraActivity: ARSceneActivity? = null
+    var animationLayout: ConstraintLayout? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
