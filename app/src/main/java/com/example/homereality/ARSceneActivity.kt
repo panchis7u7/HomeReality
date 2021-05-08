@@ -1,22 +1,16 @@
 package com.example.homereality
 
-import android.content.Context
 import android.net.Uri
 import android.os.Bundle
-import android.util.AttributeSet
-import android.util.Log
-import android.view.KeyCharacterMap
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
 import com.example.homereality.Features.*
 import com.example.homereality.databinding.ActivityARSceneBinding
-import com.google.android.material.button.MaterialButton
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.ar.core.Anchor
-import com.google.ar.core.ArCoreApk.InstallStatus
 import com.google.ar.core.HitResult
 import com.google.ar.sceneform.AnchorNode
 import com.google.ar.sceneform.Camera
@@ -31,7 +25,6 @@ import com.google.ar.sceneform.rendering.Renderable
 import com.google.ar.sceneform.ux.ArFragment
 import com.google.ar.sceneform.ux.TransformableNode
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
 import com.warkiz.widget.IndicatorSeekBar
 import com.warkiz.widget.IndicatorStayLayout
 import com.warkiz.widget.OnSeekChangeListener
@@ -153,7 +146,6 @@ class ARSceneActivity : AppCompatActivity() {
     }
 
     private fun addNodeToScene(arFragment: ArFragment, anchor: Anchor, renderable: Renderable) {
-        Log.d("NodeGen", "-----------------------> Adding node to scene!")
         var anchorNode = AnchorNode(anchor)
         var node = TransformableNode(arFragment.transformationSystem)
         node.translationController.isEnabled = true
@@ -173,7 +165,7 @@ class ARSceneActivity : AppCompatActivity() {
         box.arFragment = arFragment
         node.setParent(anchorNode)
         arFragment.arSceneView.scene.addChild(anchorNode)
-        findViewById<MaterialButton>(R.id.buttonClear).visibility = View.VISIBLE
+        findViewById<FloatingActionButton>(R.id.floatingActionClear).visibility = View.VISIBLE
         node.select()
     }
 
@@ -233,7 +225,7 @@ class ARSceneActivity : AppCompatActivity() {
     }
 
     private fun setupRulerButton(){
-        val clear: MaterialButton = findViewById(R.id.buttonClear)
+        val clear: FloatingActionButton = findViewById(R.id.floatingActionClear)
         binding.bottomAppBarNavigation.menu.getItem(2).setOnMenuItemClickListener {
             Toast.makeText(this, "Ruler button pressed!", Toast.LENGTH_LONG).show()
             if(!measuredSelected){
@@ -256,7 +248,7 @@ class ARSceneActivity : AppCompatActivity() {
     }
 
     private fun setupClearButton(){
-        val clearBtn: MaterialButton = findViewById(R.id.buttonClear)
+        val clearBtn: FloatingActionButton = findViewById(R.id.floatingActionClear)
         clearBtn.setOnClickListener {
             onClear()
         }

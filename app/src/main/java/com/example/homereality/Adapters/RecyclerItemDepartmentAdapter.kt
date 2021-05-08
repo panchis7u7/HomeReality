@@ -140,7 +140,6 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
                     bundle.putLong("length", item.sizes[0]!!)
                     bundle.putLong("width", item.sizes[1]!!)
                     bundle.putLong("height", item.sizes[2]!!)
-                loading.visibility = View.INVISIBLE
                 context.startActivity(Intent(context, ARSceneActivity::class.java).putExtras(bundle))
             }
         } else {
