@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private val binding get() = _binding!!
     private var db: FirebaseFirestore? = null
     override fun onCreate(savedInstanceState: Bundle?) {
+        Thread.sleep(2000)
+        setTheme(R.style.Theme_HomeReality)
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         //setContentView(R.layout.activity_main)
