@@ -16,6 +16,7 @@ import com.example.homereality.Models.FurnitureCategory
 import com.example.homereality.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private var _binding: ActivityMainBinding? = null
     private val binding get() = _binding!!
     private var db: FirebaseFirestore? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         Thread.sleep(2000)
         setTheme(R.style.Theme_HomeReality)
@@ -33,14 +35,12 @@ class MainActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_main)
         setContentView(binding.root)
 
-        GlobalScope.launch {
-            val actionBar = supportActionBar
-            actionBar!!.title = "Categorias"
-            setFullScreen()
-            binding.recyclerCategory.layoutManager = GridLayoutManager(applicationContext, 2,
-                    LinearLayoutManager.VERTICAL, false)
-            binding.recyclerCategory.setHasFixedSize(false)
-        }
+        val actionBar = supportActionBar
+        actionBar!!.title = "Categorias"
+        setFullScreen()
+        binding.recyclerCategory.layoutManager = GridLayoutManager(applicationContext, 2,
+            LinearLayoutManager.VERTICAL, false)
+        binding.recyclerCategory.setHasFixedSize(false)
 
         db = FirebaseFirestore.getInstance()
         populateList()
@@ -48,10 +48,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
-    /** Retrieve all categorys from firebase. **/
+    /** Retrieve all categories from firebase. **/
 
     private fun populateList(){
-        var items: MutableList<FurnitureCategory> = mutableListOf()
+        val items: MutableList<FurnitureCategory> = mutableListOf()
         db?.let {
             it.collection("Information").get().addOnSuccessListener {
                 it.documents.map { document ->
