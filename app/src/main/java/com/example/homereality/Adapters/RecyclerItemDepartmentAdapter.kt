@@ -29,11 +29,9 @@ import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
 
-class RecyclerItemDepartmentAdapter(private var context: Context,
-                                    private var items: MutableList<Furniture>) :
-RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
-{
-    private var isLoading = false
+class RecyclerItemDepartmentAdapter(private val context: Context,
+                                    private val items: List<Furniture>) :
+RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
     private val loadingDialogFragment by lazy { LoadingDialogFragment() }
     private var clicked: Boolean = false
 
@@ -70,40 +68,35 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
     }
 
     override fun onBindViewHolder(holder: ItemHolder, position: Int) {
-        var item: Furniture = items.get(position)
-        GlobalScope.launch {
-            holder.textViewModel.text = item.model
-            holder.textViewMaterial.text = item.color
-            holder.textViewCost.text = "$" + item.price.toString() + ".00 MXN"
-            holder.textViewDimensions.text = item.sizes[0].toString() + " x " +
-                    item.sizes[1].toString() + " x " +
-                    item.sizes[2].toString()
-            holder.textViewFeatures.text = item.details.get("description")
-            holder.floatActionOptions.setOnClickListener {
-                if(!clicked){
-                    holder.floatActionOptionAr.visibility = View.VISIBLE
-                    holder.floatActionOptionHelp.visibility = View.VISIBLE
-                    holder.floatActionOptionAr.startAnimation(holder.fromBottom)
-                    holder.floatActionOptionHelp.startAnimation(holder.fromBottom)
-                    holder.floatActionOptions.startAnimation(holder.rotateOpen)
-                } else {
-                    holder.floatActionOptionAr.visibility = View.INVISIBLE
-                    holder.floatActionOptionHelp.visibility = View.INVISIBLE
-                    holder.floatActionOptionAr.startAnimation(holder.toBottom)
-                    holder.floatActionOptionHelp.startAnimation(holder.toBottom)
-                    holder.floatActionOptions.startAnimation(holder.rotateClose)
-                }
-                clicked = !clicked
-            }
+        val item: Furniture = items.get(position)
+        holder.textViewModel.text = item.model
+        holder.textViewMaterial.text = item.color
+        holder.textViewCost.text = "$" + item.price.toString() + ".00 MXN"
+        holder.textViewDimensions.text = item.sizes[0].toString() + " x " +
+                item.sizes[1].toString() + " x " +
+                item.sizes[2].toString()
 
-            holder.floatActionOptionAr.setOnClickListener {
-                downloadModel(holder, item)
+        holder.textViewFeatures.text = item.details.get("description")
+        holder.floatActionOptions.setOnClickListener {
+            if(!clicked){
+                holder.floatActionOptionAr.visibility = View.VISIBLE
+                holder.floatActionOptionHelp.visibility = View.VISIBLE
+                holder.floatActionOptionAr.startAnimation(holder.fromBottom)
+                holder.floatActionOptionHelp.startAnimation(holder.fromBottom)
+                holder.floatActionOptions.startAnimation(holder.rotateOpen)
+            } else {
+                holder.floatActionOptionAr.visibility = View.INVISIBLE
+                holder.floatActionOptionHelp.visibility = View.INVISIBLE
+                holder.floatActionOptionAr.startAnimation(holder.toBottom)
+                holder.floatActionOptionHelp.startAnimation(holder.toBottom)
+                holder.floatActionOptions.startAnimation(holder.rotateClose)
             }
-
-            holder.floatActionOptionHelp.setOnClickListener {
-
-            }
+            clicked = !clicked
         }
+
+        holder.floatActionOptionAr.setOnClickListener { downloadModel(holder, item) }
+
+        holder.floatActionOptionHelp.setOnClickListener {}
 
         holder.viewPagerFurniture.adapter = FurniturePager(context, item.images)
         holder.viewPagerFurniture.orientation = ViewPager2.ORIENTATION_HORIZONTAL
@@ -135,7 +128,7 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
             loading.visibility = View.VISIBLE
             val storageRef: StorageReference = storage.reference.child(item.rendable!!)
             storageRef.getFile(model).addOnSuccessListener {
-                var bundle = Bundle()
+                val bundle = Bundle()
                 bundle.putSerializable("model", model)
                     bundle.putLong("length", item.sizes[0]!!)
                     bundle.putLong("width", item.sizes[1]!!)
@@ -146,5 +139,4 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>()
             Toast.makeText(context, "Error downloading the model!!", Toast.LENGTH_LONG).show()
         }
     }
-
 }

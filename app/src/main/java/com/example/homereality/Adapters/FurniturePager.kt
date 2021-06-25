@@ -11,7 +11,7 @@ import com.example.homereality.R
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
-class FurniturePager(var context: Context, var images: List<String?>) :
+class FurniturePager(val context: Context, val images: List<String?>) :
     RecyclerView.Adapter<FurniturePager.Pager2ViewHolder>() {
 
         inner class Pager2ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
@@ -24,9 +24,9 @@ class FurniturePager(var context: Context, var images: List<String?>) :
     }
 
     override fun onBindViewHolder(holder: Pager2ViewHolder, position: Int) {
-        var storage: FirebaseStorage = FirebaseStorage.getInstance()
-        storage?.let {
-            var imageRef: StorageReference = it.reference.child(images[position]!!)
+        val storage: FirebaseStorage = FirebaseStorage.getInstance()
+        storage.let {
+            val imageRef: StorageReference = it.reference.child(images[position]!!)
             GlideApp.with(context)
                 .load(imageRef)
                 .into(holder.imageViewFurniture)

@@ -31,23 +31,24 @@ class DepartmentActivity : AppCompatActivity() {
             category = it.extras?.getString("furniture")
         }
 
-        GlobalScope.launch {
-            supportActionBar!!.title = category
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-            setFullScreen()
-            binding.recyclerDepartment.layoutManager = LinearLayoutManager(
-                    this@DepartmentActivity, RecyclerView.VERTICAL, false)
-        }
+        supportActionBar!!.title = category
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        setFullScreen()
+        binding.recyclerDepartment.layoutManager = LinearLayoutManager(
+            this@DepartmentActivity, RecyclerView.VERTICAL, false)
+
 
         ////////////////////////////////////////////////////////////////////////////////////////////////
 
         ////////////////////////////////////////////////////////////////////////////////////////////////
         /** Retrive all furniture based on the users category choice. **/
 
-        var items: MutableList<Furniture> = mutableListOf()
+        val items: MutableList<Furniture> = mutableListOf()
         db = FirebaseFirestore.getInstance()
         db?.let {
-            it.collection("Furniture").whereEqualTo("category", category?.toUpperCase()).get()
+            it.collection("Furniture").whereEqualTo("category",
+                category?.uppercase(Locale.getDefault())
+            ).get()
                 .addOnSuccessListener {
                     it.documents.map { document ->
                         items.add(

@@ -56,7 +56,8 @@ class MainActivity : AppCompatActivity() {
             it.collection("Information").get().addOnSuccessListener {
                 it.documents.map { document ->
                     items.add(FurnitureCategory(
-                            (document.get("category") as String).toLowerCase().capitalize(),
+                        (document.get("category") as String).lowercase(Locale.getDefault())
+                            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() },
                             (document.get("iconBlack") as String),
                             (document.get("iconWhite") as String)
                     ))
