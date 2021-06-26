@@ -79,9 +79,9 @@ class ARSceneActivity : AppCompatActivity() {
             modelWidth = it.extras?.getDouble("width")!!
             modelHeight = it.extras?.getDouble("height")!!
 
-            modelLength /= 100f
-            modelWidth /= 100f
-            modelHeight /= 100f
+            modelLength /= 100.0
+            modelWidth /= 100.0
+            modelHeight /= 100.0
         }
 
         setArFragmentAction(model!!)
@@ -123,14 +123,14 @@ class ARSceneActivity : AppCompatActivity() {
                     findViewById<IndicatorStayLayout>(R.id.indicatorStayLayout).visibility =  View.VISIBLE
                 }
             } else {
-                var anchor: Anchor = hitResult.createAnchor()
+                val anchor: Anchor = hitResult.createAnchor()
                 buildModel(model, arFragment!!, anchor)
             }
         }
     }
 
     private fun buildModel(model: File, arFragment: ArFragment, anchor: Anchor) {
-        var renderableSource = RenderableSource
+        val renderableSource = RenderableSource
                 .builder()
                 .setSource(arFragment.context, Uri.parse(model.path), RenderableSource.SourceType.GLB)
                 .setRecenterMode(RenderableSource.RecenterMode.ROOT)
@@ -148,11 +148,13 @@ class ARSceneActivity : AppCompatActivity() {
     private fun addNodeToScene(arFragment: ArFragment, anchor: Anchor, renderable: Renderable) {
         val anchorNode = AnchorNode(anchor)
         val node = TransformableNode(arFragment.transformationSystem)
+
+        node.scaleController.isEnabled = false
         node.translationController.isEnabled = true
         node.rotationController.isEnabled = true
         node.renderable = renderable
 
-        val boundingBox: Box = renderable!!.collisionShape as Box
+        val boundingBox: Box = renderable.collisionShape as Box
         val renderableSize: Vector3 = boundingBox.size
 
         /** Update world scale. **/
@@ -162,11 +164,11 @@ class ARSceneActivity : AppCompatActivity() {
             (modelLength * 1.0 / renderableSize.z).toFloat()
         )
 
-        box.arFragment = arFragment
         node.setParent(anchorNode)
         arFragment.arSceneView.scene.addChild(anchorNode)
         findViewById<FloatingActionButton>(R.id.floatingActionClear).visibility = View.VISIBLE
         node.select()
+        box.arFragment = arFragment
     }
 
     /** Setup toasty. **/
@@ -286,7 +288,7 @@ class ARSceneActivity : AppCompatActivity() {
 
     /**  Displays a message when no shape was measured. **/
     private fun showShapedMeasuredDialog() {
-        var toast = Toasty.success(this, "Shape was measured!", Toast.LENGTH_SHORT, true)
+        val toast = Toasty.success(this, "Shape was measured!", Toast.LENGTH_SHORT, true)
         toast.setGravity(toast.gravity, toast.xOffset, toast.yOffset + 70)
         toast.show();
     }

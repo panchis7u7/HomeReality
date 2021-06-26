@@ -60,7 +60,7 @@ class DepartmentActivity : AppCompatActivity(), IOnClick {
                                 (document.get("model") as String),
                                 (document.get("price") as Long),
                                 (document.get("rendable") as String),
-                                (document.get("sizes") as List<Float?>),
+                                (document.get("sizes") as List<Double?>),
                                 (document.get("source") as String)
                             )
                         )
