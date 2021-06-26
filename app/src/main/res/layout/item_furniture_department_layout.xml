@@ -83,7 +83,7 @@
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/floatingButtonOption2"
                     android:backgroundTint="@color/green"
-                    android:src="@drawable/icon_help"
+                    android:src="@drawable/icon_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="invisible"

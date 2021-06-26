@@ -2,6 +2,7 @@ package com.example.homereality.Adapters
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,7 +41,7 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
 
         val floatActionOptions: FloatingActionButton = itemView.findViewById(R.id.floatingButtonOptions)
         val floatActionOptionAr: FloatingActionButton = itemView.findViewById(R.id.floatingButtonOption1)
-        val floatActionOptionHelp: FloatingActionButton = itemView.findViewById(R.id.floatingButtonOption2)
+        val floatActionOptionPurchase: FloatingActionButton = itemView.findViewById(R.id.floatingButtonOption2)
         val viewPagerFurniture: ViewPager2 = itemView.findViewById(R.id.viewPagerFurniture)
         val circleIndicator: CircleIndicator3 = itemView.findViewById(R.id.circleIndicatorViewPager)
         val textViewModel: TextView = itemView.findViewById(R.id.textViewFurnitureModel)
@@ -76,15 +77,15 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
         holder.floatActionOptions.setOnClickListener {
             if(!clicked){
                 holder.floatActionOptionAr.visibility = View.VISIBLE
-                holder.floatActionOptionHelp.visibility = View.VISIBLE
+                holder.floatActionOptionPurchase.visibility = View.VISIBLE
                 holder.floatActionOptionAr.startAnimation(holder.fromBottom)
-                holder.floatActionOptionHelp.startAnimation(holder.fromBottom)
+                holder.floatActionOptionPurchase.startAnimation(holder.fromBottom)
                 holder.floatActionOptions.startAnimation(holder.rotateOpen)
             } else {
                 holder.floatActionOptionAr.visibility = View.INVISIBLE
-                holder.floatActionOptionHelp.visibility = View.INVISIBLE
+                holder.floatActionOptionPurchase.visibility = View.INVISIBLE
                 holder.floatActionOptionAr.startAnimation(holder.toBottom)
-                holder.floatActionOptionHelp.startAnimation(holder.toBottom)
+                holder.floatActionOptionPurchase.startAnimation(holder.toBottom)
                 holder.floatActionOptions.startAnimation(holder.rotateClose)
             }
             clicked = !clicked
@@ -92,7 +93,13 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
 
         holder.floatActionOptionAr.setOnClickListener { downloadModel(item) }
 
-        holder.floatActionOptionHelp.setOnClickListener {}
+        holder.floatActionOptionPurchase.setOnClickListener {
+            try {
+                context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(item.source)))
+            } catch (e: Exception){
+                Toast.makeText(context, "Product is not available!", Toast.LENGTH_LONG).show()
+            }
+        }
 
         holder.viewPagerFurniture.adapter = FurniturePager(context, item.images)
         holder.viewPagerFurniture.orientation = ViewPager2.ORIENTATION_HORIZONTAL
