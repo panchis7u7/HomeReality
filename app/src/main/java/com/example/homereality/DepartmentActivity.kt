@@ -9,13 +9,13 @@ import android.view.WindowInsetsController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homereality.Adapters.RecyclerItemDepartmentAdapter
-import com.example.homereality.Interfaces.IOnNavigate
+import com.example.homereality.Interfaces.IOnClick
 import com.example.homereality.Models.Furniture
 import com.example.homereality.databinding.ActivityDepartmentBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 
-class DepartmentActivity : AppCompatActivity(), IOnNavigate {
+class DepartmentActivity : AppCompatActivity(), IOnClick {
     private var _binding: ActivityDepartmentBinding? = null
     private val binding get() = _binding!!
     private var db: FirebaseFirestore? = null
@@ -60,7 +60,7 @@ class DepartmentActivity : AppCompatActivity(), IOnNavigate {
                                 (document.get("model") as String),
                                 (document.get("price") as Long),
                                 (document.get("rendable") as String),
-                                (document.get("sizes") as List<Long?>),
+                                (document.get("sizes") as List<Float?>),
                                 (document.get("source") as String)
                             )
                         )

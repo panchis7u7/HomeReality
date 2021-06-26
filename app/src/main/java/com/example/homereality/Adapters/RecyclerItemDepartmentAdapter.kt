@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.homereality.ARSceneActivity
 import com.example.homereality.Fragments.LoadingDialogFragment
-import com.example.homereality.Interfaces.IOnNavigate
+import com.example.homereality.Interfaces.IOnClick
 import com.example.homereality.Models.Furniture
 import com.example.homereality.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -26,7 +26,7 @@ import java.io.File
 
 class RecyclerItemDepartmentAdapter(private val context: Context,
                                     private val items: List<Furniture>,
-                                    private val onClick: IOnNavigate
+                                    private val onClick: IOnClick
 ) :
 RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
     private val loadingDialogFragment by lazy { LoadingDialogFragment() }
@@ -53,7 +53,6 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
         init {
 
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemHolder {
@@ -133,9 +132,9 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
             storageRef.getFile(model).addOnSuccessListener {
                 val bundle = Bundle()
                 bundle.putSerializable("model", model)
-                    bundle.putLong("length", item.sizes[0]!!)
-                    bundle.putLong("width", item.sizes[1]!!)
-                    bundle.putLong("height", item.sizes[2]!!)
+                    bundle.putDouble("length", item.sizes[0]!!)
+                    bundle.putDouble("width", item.sizes[1]!!)
+                    bundle.putDouble("height", item.sizes[2]!!)
                 context.startActivity(Intent(context, ARSceneActivity::class.java).putExtras(bundle))
             }
         } else {

@@ -61,9 +61,9 @@ class ARSceneActivity : AppCompatActivity() {
     /** Furniture module related. **/
     private var furnitureRenderable: Renderable? = null
     var furnitureAnchor: Anchor? = null
-    var modelLength: Float = 0f
-    var modelWidth: Float = 0f
-    var modelHeight: Float = 0f
+    var modelLength: Double = 0.0
+    var modelWidth: Double = 0.0
+    var modelHeight: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,9 +75,9 @@ class ARSceneActivity : AppCompatActivity() {
 
         intent?.let {
             model = it.extras?.get("model") as File
-            modelLength = it.extras?.getLong("length")!!.toFloat()
-            modelWidth = it.extras?.getLong("width")!!.toFloat()
-            modelHeight = it.extras?.getLong("height")!!.toFloat()
+            modelLength = it.extras?.getDouble("length")!!
+            modelWidth = it.extras?.getDouble("width")!!
+            modelHeight = it.extras?.getDouble("height")!!
 
             modelLength /= 100f
             modelWidth /= 100f
@@ -146,8 +146,8 @@ class ARSceneActivity : AppCompatActivity() {
     }
 
     private fun addNodeToScene(arFragment: ArFragment, anchor: Anchor, renderable: Renderable) {
-        var anchorNode = AnchorNode(anchor)
-        var node = TransformableNode(arFragment.transformationSystem)
+        val anchorNode = AnchorNode(anchor)
+        val node = TransformableNode(arFragment.transformationSystem)
         node.translationController.isEnabled = true
         node.rotationController.isEnabled = true
         node.renderable = renderable
@@ -157,9 +157,9 @@ class ARSceneActivity : AppCompatActivity() {
 
         /** Update world scale. **/
         node.worldScale = Vector3(
-            modelWidth * 1 / renderableSize.x,
-            modelHeight * 1 / renderableSize.y,
-            modelLength * 1 / renderableSize.z
+            (modelWidth * 1.0 / renderableSize.x).toFloat(),
+            (modelHeight * 1.0 / renderableSize.y).toFloat(),
+            (modelLength * 1.0 / renderableSize.z).toFloat()
         )
 
         box.arFragment = arFragment

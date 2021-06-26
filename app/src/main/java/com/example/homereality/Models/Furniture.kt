@@ -7,6 +7,6 @@ data class Furniture(var category: String? = "",
                      var model: String? = "hola",
                      var price: Long?,
                      var rendable: String? = "",
-                     var sizes: List<Long?>,
+                     var sizes: List<Double?>,
                      var source: String? = "") {
 }

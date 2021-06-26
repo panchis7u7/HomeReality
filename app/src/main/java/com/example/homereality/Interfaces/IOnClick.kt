@@ -1,6 +1,6 @@
 package com.example.homereality.Interfaces
 
-interface IOnNavigate {
+interface IOnClick {
     fun resumeAnimation()
     fun pauseAnimation()
 }
