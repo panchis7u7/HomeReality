@@ -16,6 +16,7 @@
         tools:listitem="@layout/item_furniture_department_layout"/>
 
     <include layout="@layout/loading_animation_layout"
+        android:id="@+id/lottieAnimationView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

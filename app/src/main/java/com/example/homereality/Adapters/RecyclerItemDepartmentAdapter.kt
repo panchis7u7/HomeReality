@@ -8,29 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.homereality.ARSceneActivity
-import com.example.homereality.DepartmentActivity
 import com.example.homereality.Fragments.LoadingDialogFragment
+import com.example.homereality.Interfaces.IOnNavigate
 import com.example.homereality.Models.Furniture
 import com.example.homereality.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import me.relex.circleindicator.CircleIndicator3
 import java.io.File
-import java.util.*
-import kotlin.collections.ArrayList
 
 class RecyclerItemDepartmentAdapter(private val context: Context,
-                                    private val items: List<Furniture>) :
+                                    private val items: List<Furniture>,
+                                    private val onClick: IOnNavigate
+) :
 RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
     private val loadingDialogFragment by lazy { LoadingDialogFragment() }
     private var clicked: Boolean = false
@@ -94,7 +90,7 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
             clicked = !clicked
         }
 
-        holder.floatActionOptionAr.setOnClickListener { downloadModel(holder, item) }
+        holder.floatActionOptionAr.setOnClickListener { downloadModel(item) }
 
         holder.floatActionOptionHelp.setOnClickListener {}
 
@@ -117,15 +113,15 @@ RecyclerView.Adapter<RecyclerItemDepartmentAdapter.ItemHolder>() {
     override fun getItemCount(): Int = items.size
 
     /** Download the model. **/
-    private fun downloadModel(holder: ItemHolder, item: Furniture){
+    private fun downloadModel(item: Furniture){
 
         val storage = FirebaseStorage.getInstance()
         val model: File = File.createTempFile("model", "glb")
-        val loading = (holder.itemView.context as DepartmentActivity)
-            .findViewById<ConstraintLayout>(R.id.load_animation)
+        /*val loading = (holder.itemView.context as DepartmentActivity)
+            .findViewById<ConstraintLayout>(R.id.lottieAnimationView)*/
 
         if (item.rendable != "") {
-            loading.visibility = View.VISIBLE
+            onClick.resumeAnimation()
             val storageRef: StorageReference = storage.reference.child(item.rendable!!)
             storageRef.getFile(model).addOnSuccessListener {
                 val bundle = Bundle()

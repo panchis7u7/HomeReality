@@ -3,19 +3,19 @@ package com.example.homereality
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.homereality.Adapters.RecyclerItemDepartmentAdapter
+import com.example.homereality.Interfaces.IOnNavigate
 import com.example.homereality.Models.Furniture
 import com.example.homereality.databinding.ActivityDepartmentBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.util.*
 
-class DepartmentActivity : AppCompatActivity() {
+class DepartmentActivity : AppCompatActivity(), IOnNavigate {
     private var _binding: ActivityDepartmentBinding? = null
     private val binding get() = _binding!!
     private var db: FirebaseFirestore? = null
@@ -65,7 +65,7 @@ class DepartmentActivity : AppCompatActivity() {
                             )
                         )
                     }
-                    binding.recyclerDepartment.adapter = RecyclerItemDepartmentAdapter(this, items)
+                    binding.recyclerDepartment.adapter = RecyclerItemDepartmentAdapter(this, items, this)
                 }
         }
     }
@@ -95,7 +95,8 @@ class DepartmentActivity : AppCompatActivity() {
                         or WindowInsets.Type.captionBar())*/
                 controller.hide(WindowInsets.Type.navigationBars())
                 //supportActionBar?.hide()
-                controller.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+                controller.systemBarsBehavior =
+                    WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             }
         } else {/*
             // All below using to hide navigation bar
@@ -120,8 +121,25 @@ class DepartmentActivity : AppCompatActivity() {
                     }
                 }
             }
-        */}
+        */
+        }
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    override fun onResume() {
+        super.onResume()
+        pauseAnimation()
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////
+    override fun resumeAnimation() {
+        binding.lottieAnimationView.loadAnimation.visibility = View.VISIBLE
+        binding.lottieAnimationView.animationView.resumeAnimation()
+        binding.lottieAnimationView.animationView.visibility = View.VISIBLE
+    }
+
+    override fun pauseAnimation() {
+        binding.lottieAnimationView.loadAnimation.visibility = View.GONE
+        binding.lottieAnimationView.animationView.pauseAnimation()
+        binding.lottieAnimationView.animationView.visibility = View.GONE
+    }
 }
