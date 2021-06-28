@@ -10,6 +10,8 @@
     <color name="lavender">#DCD0FF</color>
     <color name="green">#57B49C</color>
     <color name="grey">#666666</color>
+    <color name="splashWhite">#F4E6FF</color>
+    <color name="appBlack">#3D3D3D</color>
     <color name="lightBlue">#84BAEC</color>
     <color name="slideBarShadow">#44000000</color>
     <color name="scale_btn_tint">#80D5D5D5</color>
