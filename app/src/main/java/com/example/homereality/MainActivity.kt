@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val actionBar = supportActionBar
-        actionBar!!.title = "Categorias"
+        actionBar!!.title = "Categories"
         setFullScreen()
         binding.recyclerCategory.layoutManager = GridLayoutManager(applicationContext, 2,
             LinearLayoutManager.VERTICAL, false)
