@@ -13,8 +13,8 @@
   "color": "black-brown/Luroy",
   "rendable": "models/bed_1.glb",
   "images": [
-    "https://firebasestorage.googleapis.com/v0/b/couchmirage-74314.appspot.com/o/images%2Fbed_1_1.jpg?alt=media&token=4cf5a1c6-820e-4ea6-b794-126ef21898b0",
-    "https://firebasestorage.googleapis.com/v0/b/couchmirage-74314.appspot.com/o/images%2Fbed_1_2.jpg?alt=media&token=ae143524-ac40-445d-932a-755f10e43593"
+    "images/bed_1_1.jpg",
+    "images/bed_1_2.jpg"
   ],
   "source": "https://www.ikea.com/mx/en/p/hemnes-bed-frame-black-brown-luroey-s19069773/",
   "model": "HEMNES"

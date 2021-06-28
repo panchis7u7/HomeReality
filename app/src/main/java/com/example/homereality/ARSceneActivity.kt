@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.homereality.Features.*
+import com.example.homereality.Utils.PhotoSaver
 import com.example.homereality.databinding.ActivityARSceneBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
@@ -65,6 +66,8 @@ class ARSceneActivity : AppCompatActivity() {
     var modelWidth: Double = 0.0
     var modelHeight: Double = 0.0
 
+    val photoSaver = PhotoSaver(this)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityARSceneBinding.inflate(layoutInflater)
@@ -92,6 +95,7 @@ class ARSceneActivity : AppCompatActivity() {
         onClear()
         setupClearButton()
         setupRulerButton()
+        setupCameraButton()
     }
 
     private fun setArFragmentAction(model: File){
@@ -227,7 +231,6 @@ class ARSceneActivity : AppCompatActivity() {
     }
 
     private fun setupRulerButton(){
-        val clear: FloatingActionButton = findViewById(R.id.floatingActionClear)
         binding.bottomAppBarNavigation.menu.getItem(2).setOnMenuItemClickListener {
             Toast.makeText(this, "Ruler button pressed!", Toast.LENGTH_LONG).show()
             if(!measuredSelected){
@@ -236,7 +239,7 @@ class ARSceneActivity : AppCompatActivity() {
                 if(box.getMeasurementStage() == MeasurementStage.HEIGHT){
 
                 }
-                clear.visibility = View.VISIBLE
+                binding.floatingActionClear.visibility = View.VISIBLE
             } else if(measuredSelected && box.getMeasurementStage() == MeasurementStage.HEIGHT){
                 userMeasurements = box.getBoxMeasurements()
                 navigationView.visibility = View.GONE
@@ -253,6 +256,13 @@ class ARSceneActivity : AppCompatActivity() {
         val clearBtn: FloatingActionButton = findViewById(R.id.floatingActionClear)
         clearBtn.setOnClickListener {
             onClear()
+        }
+    }
+
+    private fun setupCameraButton(){
+        binding.bottomAppBarNavigation.menu.getItem(1).setOnMenuItemClickListener {
+            photoSaver.takePhoto(arFragment!!.arSceneView)
+            return@setOnMenuItemClickListener true
         }
     }
 
