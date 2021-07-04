@@ -1,4 +1,4 @@
-package com.example.homereality.Interfaces
+package com.voxel.homereality.Interfaces
 
 interface IOnClick {
     fun resumeAnimation()

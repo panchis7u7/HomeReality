@@ -1,4 +1,4 @@
-package com.example.homereality.Adapters
+package com.voxel.homereality.Adapters
 
 import android.content.Context
 import android.content.Intent
@@ -12,14 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.RequestOptions
 import com.bumptech.glide.request.target.Target
-import com.example.homereality.DepartmentActivity
-import com.example.homereality.Models.FurnitureCategory
-import com.example.homereality.R
+import com.voxel.homereality.DepartmentActivity
+import com.voxel.homereality.Models.FurnitureCategory
+import com.voxel.homereality.R
 
 
 class RecyclerItemCategoryAdapter (private val context: Context,

@@ -1,4 +1,4 @@
-package com.example.homereality.Utils
+package com.voxel.homereality.Utils
 
 import android.app.Activity
 import android.content.ContentValues

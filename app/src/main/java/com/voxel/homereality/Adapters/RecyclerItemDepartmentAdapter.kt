@@ -1,4 +1,4 @@
-package com.example.homereality.Adapters
+package com.voxel.homereality.Adapters
 
 import android.content.Context
 import android.content.Intent
@@ -13,11 +13,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import com.example.homereality.ARSceneActivity
-import com.example.homereality.Fragments.LoadingDialogFragment
-import com.example.homereality.Interfaces.IOnClick
-import com.example.homereality.Models.Furniture
-import com.example.homereality.R
+import com.voxel.homereality.ARSceneActivity
+import com.voxel.homereality.Fragments.LoadingDialogFragment
+import com.voxel.homereality.Interfaces.IOnClick
+import com.voxel.homereality.Models.Furniture
+import com.voxel.homereality.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference

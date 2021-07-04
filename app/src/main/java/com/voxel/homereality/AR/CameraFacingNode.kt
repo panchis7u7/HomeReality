@@ -1,4 +1,4 @@
-package com.example.homereality.AR
+package com.voxel.homereality.AR
 
 import com.google.ar.sceneform.FrameTime
 import com.google.ar.sceneform.Node

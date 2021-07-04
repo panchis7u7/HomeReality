@@ -1,4 +1,4 @@
-package com.example.homereality
+package com.voxel.homereality
 
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -8,10 +8,10 @@ import android.view.WindowInsets
 import android.view.WindowInsetsController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.homereality.Adapters.RecyclerItemDepartmentAdapter
-import com.example.homereality.Interfaces.IOnClick
-import com.example.homereality.Models.Furniture
-import com.example.homereality.databinding.ActivityDepartmentBinding
+import com.voxel.homereality.Adapters.RecyclerItemDepartmentAdapter
+import com.voxel.homereality.Interfaces.IOnClick
+import com.voxel.homereality.Models.Furniture
+import com.voxel.homereality.databinding.ActivityDepartmentBinding
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 

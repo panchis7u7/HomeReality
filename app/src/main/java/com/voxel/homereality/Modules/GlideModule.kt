@@ -1,4 +1,4 @@
-package com.example.homereality.Modules
+package com.voxel.homereality.Modules
 
 import android.content.Context
 import com.bumptech.glide.Glide

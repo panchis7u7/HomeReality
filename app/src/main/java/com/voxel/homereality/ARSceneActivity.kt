@@ -1,4 +1,4 @@
-package com.example.homereality
+package com.voxel.homereality
 
 import android.net.Uri
 import android.os.Bundle
@@ -6,9 +6,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.homereality.Features.*
-import com.example.homereality.Utils.PhotoSaver
-import com.example.homereality.databinding.ActivityARSceneBinding
+import com.voxel.homereality.Features.*
+import com.voxel.homereality.Utils.PhotoSaver
+import com.voxel.homereality.databinding.ActivityARSceneBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.ar.core.Anchor

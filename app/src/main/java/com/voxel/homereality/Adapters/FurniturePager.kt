@@ -1,4 +1,4 @@
-package com.example.homereality.Adapters
+package com.voxel.homereality.Adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.homereality.Modules.GlideApp
-import com.example.homereality.R
+import com.voxel.homereality.Modules.GlideApp
+import com.voxel.homereality.R
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 

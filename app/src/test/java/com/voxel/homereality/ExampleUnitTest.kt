@@ -1,4 +1,4 @@
-package com.example.homereality
+package com.voxel.homereality
 
 import org.junit.Test
 

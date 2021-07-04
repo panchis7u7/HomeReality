@@ -1,4 +1,4 @@
-package com.example.homereality.Fragments
+package com.voxel.homereality.Fragments
 
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
-import com.example.homereality.R
+import com.voxel.homereality.R
 
 class LoadingDialogFragment : DialogFragment() {
     override fun onCreateView(

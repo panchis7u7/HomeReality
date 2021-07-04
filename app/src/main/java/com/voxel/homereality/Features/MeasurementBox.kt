@@ -1,8 +1,8 @@
-package com.example.homereality.Features
+package com.voxel.homereality.Features
 
 import android.content.Context
 import android.widget.TextView
-import com.example.homereality.AR.CameraFacingNode
+import com.voxel.homereality.AR.CameraFacingNode
 import com.google.ar.core.Pose
 import com.google.ar.sceneform.AnchorNode
 import com.google.ar.sceneform.Node

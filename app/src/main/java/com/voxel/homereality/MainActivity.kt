@@ -1,25 +1,16 @@
-package com.example.homereality
+package com.voxel.homereality
 
-import android.content.DialogInterface
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.homereality.Adapters.RecyclerItemCategoryAdapter
-import com.example.homereality.Models.FurnitureCategory
-import com.example.homereality.databinding.ActivityMainBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.voxel.homereality.Adapters.RecyclerItemCategoryAdapter
+import com.voxel.homereality.Models.FurnitureCategory
+import com.voxel.homereality.databinding.ActivityMainBinding
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
